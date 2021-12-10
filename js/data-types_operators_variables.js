@@ -112,7 +112,18 @@
 // let hercules = 1;
 // let pricePerDay = 3;
 // console.log(littleMermaid * pricePerDay + brotherBear * pricePerDay + hercules * pricePerDay);
+
 // 3.2
+// let googlePay = 400;
+// let amazonPay = 380;
+// let facebookPay = 350;
+// let googleHoursWorked = 6;
+// let amazonHoursWorked = 4;
+// let facebookHoursWorked = 10;
+// let googlePayTotal = googlePay * googleHoursWorked;
+// let amazonPayTotal  = amazonPay * amazonHoursWorked;
+// let facebookPayTotal = facebookPay * facebookHoursWorked;
+// console.log(`The total amount of pay is $${googlePayTotal + amazonPayTotal + facebookPayTotal}.`);
 
 // 3.3
 // let student = 1;
