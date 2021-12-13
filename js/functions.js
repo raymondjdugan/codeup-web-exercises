@@ -1,6 +1,6 @@
 
 (function () {
-    "use strict"
+    "use strict";
 
     /**
      * TODO:
@@ -35,7 +35,7 @@
     console.log(sayHello(myName));
 // Don't modify the following line, it generates a random number between 1 and 3
 // and stores it in a variable named random
-    var random = Math.floor((Math.random() * 3) + 1);
+    let random = Math.floor((Math.random() * 3) + 1);
 
     /**
      * TODO:
@@ -55,10 +55,7 @@
      * number)
      */
     function isTwo(number) {
-        if (number === 2) {
-            return true;
-        }
-        return false;
+        return number === 2;
     }
 
     console.log(isTwo(random));
@@ -108,12 +105,13 @@
          *
          * > applyDiscount(45.99, 0.12) // 40.4712
          * */
-        let originalPrice = prompt('"What is the original price of the product?');
-        let  discountPercent = parseInt(prompt('What is the discount? 1 or 2')) /10;
-        console.log(discountPercent);
-        function applyDiscount(originalPrice, discountPercent){
-            let discountTotal = originalPrice * discountPercent
-            return originalPrice - discountTotal;
+        let originalPrice = 100;
+        let discountPercent = .2;
+
+        function applyDiscount(priceBeforeDiscount, percentOff){
+            let discountTotal = priceBeforeDiscount * percentOff
+            return priceBeforeDiscount - discountTotal;
         }
-        alert(applyDiscount(originalPrice, discountPercent));
+
+    console.log(applyDiscount(originalPrice, discountPercent));
 })();
