@@ -21,6 +21,22 @@
  * Test your function by passing various string literals to it and
  * console.logging the function's return value
  */
+// function analyzeColor(color){
+//     if(color === 'blue'){
+//         return `${color} is the color of the sky`;
+//     } else if(color === 'red') {
+//         return `Apples are ${color}`;
+//     } else if(color === 'yellow'){
+//         return `Banana's are ${color}`;
+//     } else if(color === 'greem') {
+//         return `Grape's are ${color}`;
+//     } else {
+//         return `No information about ${color}`;
+//     }
+// }
+//
+// console.log(analyzeColor('red'));
+// console.log(analyzeColor('green'));
 
 // Don't change the next two lines!
 // These lines create two variables for you:
@@ -34,18 +50,40 @@ var randomColor = colors[Math.floor(Math.random() * colors.length)];
  * Pass the `randomColor` variable to your 'analyzeColor' function and console.log the results.
  * You should see a different message every time you refresh the page
  */
+// console.log(analyzeColor(randomColor));
 
 /**
  * TODO:
  * Comment out the code above, and refactor your function to use a switch-case statement
  */
-
+// function analyzeColor(color){
+//     switch (color) {
+//         case 'blue':
+//             return `${color} is the color of the sky`;
+//             break;
+//         case 'red':
+//             return `Apples are ${color}`;
+//             break;
+//         case 'yellow':
+//             return `Banana's are ${color}`;
+//             break;
+//         case 'green':
+//             return `Grape's are ${color}`;
+//             break;
+//         default:
+//             return `No information about ${color}`;
+//     }
+// }
+// console.log(analyzeColor(randomColor));
 /**
  * TODO:
  * Prompt the user for a color when the page loads, and pass the input from the
  * user to your `analyzeColor` function. Alert the return value from your
  * function to show it to the user.
  */
+// let colorResponse = prompt('Insert a color. IE blue.');
+// alert(analyzeColor(colorResponse));
+
 
 /* ########################################################################## */
 
@@ -68,7 +106,23 @@ var randomColor = colors[Math.floor(Math.random() * colors.length)];
  * Test your function by passing it various values and checking for the expected
  * return value.
  */
-
+// function calculateTotal(randNum, totalBeforeDiscount){
+//     switch(randNum) {
+//         case 0:
+//             return `You did not get a discount. Your total is $${totalBeforeDiscount}.`;
+//         case 1:
+//             return `You get a 10% discount. Your total is $${totalBeforeDiscount - (totalBeforeDiscount * .10)}.`;
+//         case 2:
+//             return `You get a 25% discount. Your total is $${totalBeforeDiscount - (totalBeforeDiscount * .25)}.`;
+//         case 3:
+//             return `You get a 35% discount. Your total is $${totalBeforeDiscount - (totalBeforeDiscount * .35)}.`;
+//         case 4:
+//             return `You get a 50% discount. Your total is $${totalBeforeDiscount - (totalBeforeDiscount * .50)}.`;
+//         default:
+//             return `Jackpot! Your get 100% off! Your total is $0.00.`;
+//     }
+// }
+// console.log(calculateTotal(0, 100));
 /**
  * TODO:
  * Uncomment the line below to generate a random number between 0 and 5.
@@ -79,7 +133,9 @@ var randomColor = colors[Math.floor(Math.random() * colors.length)];
  */
 // Generate a random number between 0 and 6
 // var luckyNumber = Math.floor(Math.random() * 6);
-
+//
+// let totalBill = parseInt(prompt('What is your total bill?'));
+// alert(calculateTotal(luckyNumber, totalBill));
 /**
  * TODO:
  * Write some JavaScript that uses a `confirm` dialog to ask the user if they
@@ -98,3 +154,12 @@ var randomColor = colors[Math.floor(Math.random() * colors.length)];
  * Can you refactor your code to use functions?
  * HINT: The way we prompt for a value could be improved
  */
+
+let userVerify = confirm('Would you like to enter a number?');
+if(userVerify === false) {
+    confirm('Would you like to enter a number?');
+}
+
+function tellUser(userVerify) {
+
+}
