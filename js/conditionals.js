@@ -23,28 +23,32 @@
  */
 // function analyzeColor(color){
 //     if(color === 'blue'){
-//         return `${color} is the color of the sky`;
+//        console.log(`${color.charAt(0).toUpperCase() + color.slice(1)} is the color of the sky`);
 //     } else if(color === 'red') {
-//         return `Apples are ${color}`;
+//         console.log(`Apples are ${color}`);
 //     } else if(color === 'yellow'){
-//         return `Banana's are ${color}`;
-//     } else if(color === 'greem') {
-//         return `Grape's are ${color}`;
+//         console.log(`Banana's are ${color}`);
+//     } else if(color === 'green') {
+//         console.log(`Grape's are ${color}`);
 //     } else {
-//         return `No information about ${color}`;
+//         console.log(`No information about ${color}`);
 //     }
-// }
 //
-// console.log(analyzeColor('red'));
-// console.log(analyzeColor('green'));
+// }
+// analyzeColor('blue');
+// analyzeColor('red');
+// analyzeColor('green');
+// analyzeColor('indigo');
+
+
 
 // Don't change the next two lines!
 // These lines create two variables for you:
 // - `colors`: a list of the colors of the rainbow
 // - `randomColor`: contains a single random color value from the list (this
 //                  will contain a different color every time the page loads)
-var colors = ['red', 'orange', 'yellow', 'green', 'blue', 'indigo', 'violet'];
-var randomColor = colors[Math.floor(Math.random() * colors.length)];
+// var colors = ['red', 'orange', 'yellow', 'green', 'blue', 'indigo', 'violet'];
+// var randomColor = colors[Math.floor(Math.random() * colors.length)];
 /**
  * TODO:
  * Pass the `randomColor` variable to your 'analyzeColor' function and console.log the results.
@@ -59,19 +63,20 @@ var randomColor = colors[Math.floor(Math.random() * colors.length)];
 // function analyzeColor(color){
 //     switch (color) {
 //         case 'blue':
-//             return `${color} is the color of the sky`;
+//             `${color} is the color of the sky`;
 //             break;
 //         case 'red':
-//             return `Apples are ${color}`;
+//             `Apples are ${color}`;
 //             break;
 //         case 'yellow':
-//             return `Banana's are ${color}`;
+//             `Banana's are ${color}`;
 //             break;
 //         case 'green':
-//             return `Grape's are ${color}`;
+//             `Grape's are ${color}`;
 //             break;
 //         default:
-//             return `No information about ${color}`;
+//             `No information about ${color}`;
+//              break;
 //     }
 // }
 // console.log(analyzeColor(randomColor));
@@ -109,20 +114,27 @@ var randomColor = colors[Math.floor(Math.random() * colors.length)];
 // function calculateTotal(randNum, totalBeforeDiscount){
 //     switch(randNum) {
 //         case 0:
-//             return `You did not get a discount. Your total is $${totalBeforeDiscount}.`;
+//             console.log(`You did not get a discount. Your total is $${totalBeforeDiscount}.`);
+//             break;
 //         case 1:
-//             return `You get a 10% discount. Your total is $${totalBeforeDiscount - (totalBeforeDiscount * .10)}.`;
+//             console.log(`You get a 10% discount. Your total is $${totalBeforeDiscount - (totalBeforeDiscount * .10)}.`);
+//             break;
 //         case 2:
-//             return `You get a 25% discount. Your total is $${totalBeforeDiscount - (totalBeforeDiscount * .25)}.`;
+//             console.log(`You get a 25% discount. Your total is $${totalBeforeDiscount - (totalBeforeDiscount * .25)}.`);
+//             break;
 //         case 3:
-//             return `You get a 35% discount. Your total is $${totalBeforeDiscount - (totalBeforeDiscount * .35)}.`;
+//             console.log( `You get a 35% discount. Your total is $${totalBeforeDiscount - (totalBeforeDiscount * .35)}.`);
+//             break;
 //         case 4:
-//             return `You get a 50% discount. Your total is $${totalBeforeDiscount - (totalBeforeDiscount * .50)}.`;
+//             console.log(`You get a 50% discount. Your total is $${totalBeforeDiscount - (totalBeforeDiscount * .50)}.`);
+//             break;
 //         default:
-//             return `Jackpot! Your get 100% off! Your total is $0.00.`;
+//             console.log(`Jackpot! Your get 100% off! Your total is $0.00.`);
 //     }
 // }
-// console.log(calculateTotal(0, 100));
+// calculateTotal(0, 100) // returns 100
+// calculateTotal(4, 100) // returns 50
+// calculateTotal(5, 100) // returns 0
 /**
  * TODO:
  * Uncomment the line below to generate a random number between 0 and 5.
@@ -154,12 +166,75 @@ var randomColor = colors[Math.floor(Math.random() * colors.length)];
  * Can you refactor your code to use functions?
  * HINT: The way we prompt for a value could be improved
  */
-
-let userVerify = confirm('Would you like to enter a number?');
-if(userVerify === false) {
-    confirm('Would you like to enter a number?');
+//Collect confirm response as a true or false
+let userResponse = confirm('Would you like to enter a number?');
+// Function to verify the user wants to enter a number
+function userVerify(userResponse){
+    if(userResponse === true){
+        return prompt("What is the number you would like to enter?");
+    } else {
+         return alert("You choose not to enter a number!");
+    }
 }
-
-function tellUser(userVerify) {
-
+// Stored the result of the userVerify function
+let userNumber = userVerify(userResponse);
+// Checks the user response for even or odd
+function isEvenOrOdd(numberResponse){
+    if(numberResponse % 2 === 0){
+        alert(`${numberResponse} is an even number.`);
+    } else {
+        alert(`${numberResponse} is an odd number.`);
+    }
 }
+// Adds the user input to 100
+function numberPlus100(numberResponse) {
+    alert(parseInt(numberResponse) + 100);
+}
+// Checks the user input to determine if it is negative or positive
+function isNegativeOrPositive(numberResponse) {
+    if(numberResponse.charAt(0) === '-' ){
+        alert(`${numberResponse} is a negative number.`);
+    } else {
+        alert(`${numberResponse} is a positive number`);
+    }
+}
+// Checks if the response is a number value and calls the three functions for output
+function responseToUser(numberResponse){
+    if(isNaN(numberResponse)){
+        alert(`${numberResponse} is the incorrect data type. Data type is a ${typeof numberResponse}.`);
+    } else {
+        isEvenOrOdd(numberResponse);
+        numberPlus100(numberResponse);
+        isNegativeOrPositive(numberResponse);
+    }
+}
+responseToUser(userNumber);
+
+// console.log(isNegativeOrPositive(userVerify(userResponse)));
+// Create a file named conditionals.js inside the js directory.
+// Create a function called analyzeColor1 that takes a parameter called color
+// In your function, use ONLY if statements to print the following:
+// “blue is the color of the sky” if the value of color is “blue”
+// “red is the color of love” if the value of color is “red”
+// “green is the color of envy” if the value of color is “green”
+// “I don’t know that color” if the value of color is anything else
+// HINT: use return in the conditional code blocks to prevent from printing multiple times for the same argument
+// Add, commit, and push to GitHub.
+
+// function analyzeColor(color){
+//     if(color === 'blue'){
+//         return `${color} is the color of the sky`;
+//     }
+//     if(color === 'red') {
+//         return `${color} is the color of love`;
+//     }
+//     if(color === 'green') {
+//         return `${color} is the color of envy`;
+//     }
+//     return `No information about ${color}`;
+// }
+//
+// console.log(analyzeColor('red'));
+// console.log(analyzeColor('green'));
+// console.log(analyzeColor('indigo'));
+// console.log(analyzeColor('blue'));
