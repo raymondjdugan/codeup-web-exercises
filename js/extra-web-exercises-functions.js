@@ -3,74 +3,93 @@
 // Functions using conditionals but not loops or arrays:
 //
 //     - Make a function named `isOdd(number)`
-function isOdd(number) {
-    return number % 2 !== 0 ? `${number} is odd` : `${number} is even`
-}
-console.log(isOdd(3));
+// function isOdd(number) {
+//     return number % 2 !== 0 ? `${number} is odd` : `${number} is even`
+// }
+// console.log(isOdd(3));
 
 // - Make a function named `isEven(number)`
-function isEven(number) {
-    return number % 2 === 0 ? `${number} is even` : `${number} is odd`;
-}
-console.log(isEven(2));
+// function isEven(number) {
+//     return number % 2 === 0 ? `${number} is even` : `${number} is odd`;
+// }
+// console.log(isEven(2));
 
 // - Make a function named `identity(input)` that returns the input exactly as provided.
-function identity(input) {
-    return input;
-}
-console.log((identity('Hello Codeup')));
+// function identity(input) {
+//     return input;
+// }
+// console.log((identity('Hello Codeup')));
 
 // - Make a function named `isFive(input)`
-function isFive(input) {
-    return input === 5 ? `${input} is the number 5` : `${input} is not the number 5`
-}
-console.log(isFive(5));
+// function isFive(input) {
+//     return input === 5 ? `${input} is the number 5` : `${input} is not the number 5`
+// }
+// console.log(isFive(5));
 
 // - Make a function named `addFive(input)` that adds five to some input.
-function addFive (input) {
-    return `${input} plus 5 equals ${input + 5}`;
-}
-console.log(addFive(5));
+// function addFive (input) {
+//     return `${input} plus 5 equals ${input + 5}`;
+// }
+// console.log(addFive(5));
 
 // - Make a function named `isMultipleOfFive(input)`
-function isMultipleOfFive(input) {
-    return input % 5 === 0 ? `${input} is a multiple of five` : `${input} is not a multiple of five`;
-}
-console.log(isMultipleOfFive(25));
+// function isMultipleOfFive(input) {
+//     return input % 5 === 0 ? `${input} is a multiple of five` : `${input} is not a multiple of five`;
+// }
+// console.log(isMultipleOfFive(25));
 
 // - Make a function named `isThree(input)`
-function isThree(input) {
-    return input === 3 ? `${input} is the number 3` : `${input} is not the number 3`;
-}
-
-console.log(isThree(4))
+// function isThree(input) {
+//     return input === 3 ? `${input} is the number 3` : `${input} is not the number 3`;
+// }
+//
+// console.log(isThree(4))
 
 // - Make a function named `isMultipleOfThree(input)`
-function isMultipleOfThree(input){
-    return input % 3 === 0 ? `${input} is a multiple of 3` : `${input} is not a multiple of 3`
-}
-
-console.log(isMultipleOfThree(15));
+// function isMultipleOfThree(input){
+//     return input % 3 === 0 ? `${input} is a multiple of 3` : `${input} is not a multiple of 3`
+// }
+//
+// console.log(isMultipleOfThree(15));
 
 // - Make a function named `isMultipleOfThreeAndFive(input)`
-function isMultipleOfThreeAndFive(input){
-    return (input % 3 === 0 && input % 5 === 0) ? `${input} is a multiple of 3 and 5` : `${input} is not a multiple of 3 and 5`;
-}
-
-console.log(isMultipleOfThreeAndFive(15));
+// function isMultipleOfThreeAndFive(input){
+//     return (input % 3 === 0 && input % 5 === 0) ? `${input} is a multiple of 3 and 5` : `${input} is not a multiple of 3 and 5`;
+// }
+//
+// console.log(isMultipleOfThreeAndFive(15));
 // - Make a function named `isMultipleOf(target, n)` which checks if target is
 // evenly divisible by `n`
-function isMultipleOf(target, n){
-    return target % n === 0 ? `${n} is evenly divisible by ${target}` : `${n} is not evenly divisible by ${target}`;
-}
-
-console.log(isMultipleOf(3,2));
+// function isMultipleOf(target, n){
+//     return target % n === 0 ? `${n} is evenly divisible by ${target}` : `${n} is not evenly divisible by ${target}`;
+// }
+//
+// console.log(isMultipleOf(3,2));
 
 // - Make a function named `isTrue(boolean)`
-function isTrue(boolean){}
-console.log(false)
+// function isTrue(input){
+//     if(input === true) {
+//         console.log(true);
+//     } else {
+//         console.log(false);
+//     }
+// }
+// isTrue(true);
+// isTrue(false);
+// isTrue('hi');
+
 // - Make a function named `isFalse(boolean)`
-function isFalse(boolean){}
+// function isFalse(input){
+//     if(input === false) {
+//         console.log(false);
+//     } else {
+//         console.log(true);
+//     }
+// }
+// isFalse(true);
+// isFalse(false);
+// isFalse('hi');
+
 // - Make a function named `isTruthy(input)`, remember that values other than true
 // will behave like true
 function isTruthy(input){}
@@ -87,32 +106,32 @@ function isCapital(letter) {}
 function isLowerCase(letter) {}
 // - Make a function named `hasLowerCase(string)` that returns if a string has any
 // lower cased letter
-function hasLowerCase(string){
-    if(string == string.toLowerCase()){
-        return string;
-    }
-}
-console.log(hasLowerCase('i'));
+// function hasLowerCase(string){
+//     if(string == string.toLowerCase()){
+//         return string;
+//     }
+// }
+// console.log(hasLowerCase('i'));
 // - Make a function named `isSpace(letter)` that returns if a character is a space
 // character
-function isSpace(letter) {
-    if(letter === " ") {
-        return 'This is a space'
-    }
-}
-
-console.log(isSpace(" "))
+// function isSpace(letter) {
+//     if(letter === " ") {
+//         return 'This is a space'
+//     }
+// }
+//
+// console.log(isSpace(" "))
 // - Make a function named `isZero(number)`
 function isZero(number) {}
 // - Make a function named `notZero(input)` that returns true if the input is not
 // zero
-function notZero(input) {
-    if(input !== 0) {
-        return true;
-    }
-}
-
-console.log(notZero(16));
+// function notZero(input) {
+//     if(input !== 0) {
+//         return true;
+//     }
+// }
+//
+// console.log(notZero(16));
 // - Write a function named `lowerCase(string)`
 function lowerCase(string) {}
 // - Write a function named `double(n)` that returns a number times two
@@ -168,21 +187,39 @@ function cubeRoot(n){
 }
 // - Write a function named `invertSign(number)` that returns a negative version of
 // a postive number, a positve version of negative, and false for all else.
-function invertSign(x){
-    if(typeof x === 'number') {
-        return x *- 1;
-    }
-    return false;
-}
-
-console.log(invertSign('hi'));
+// function invertSign(x){
+//     if(typeof x === 'number') {
+//         console.log(x *- 1);
+//     } else {
+//         console.log(false);
+//     }
+//
+// }
+//
+// invertSign('hi');
+// invertSign(5);
+// invertSign(-6);
 // - Write a function named `degreesToRadians(number)`
 function degreesToRadians(number){}
 // - Write a function named `radiansToDegrees(number)`
 function radiansToDegrees(number){}
 // - Make a function named `isBlank(input)` that determines if a given input is
 // spaces, newline characters, or tabs.
-
+// function isBlank(input){
+//     if(input === " ") {
+//         console.log('This is a space');
+//     } else if(input === "\t") {
+//         console.log('This is a tab');
+//     } else if(input === "\n") {
+//         console.log('This is a new line');
+//     } else {
+//         console.log('This is not a space, new line or a tab');
+//     }
+// }
+// isBlank(' ');
+// isBlank("\t");
+// isBlank('\n');
+// isBlank('hi');
 // - Make a function named `trim(string)` that removes empty spaces before and
 // after the input.
 // - Make a function named `areEqual(input1, input2)` that returns if both inputs

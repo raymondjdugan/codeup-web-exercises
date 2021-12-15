@@ -167,48 +167,48 @@
  * HINT: The way we prompt for a value could be improved
  */
 //Collect confirm response as a true or false
-let userResponse = confirm('Would you like to enter a number?');
-// Function to verify the user wants to enter a number
-function userVerify(userResponse){
-    if(userResponse === true){
-        return prompt("What is the number you would like to enter?");
-    } else {
-         return alert("You choose not to enter a number!");
-    }
-}
-// Stored the result of the userVerify function
-let userNumber = userVerify(userResponse);
-// Checks the user response for even or odd
-function isEvenOrOdd(numberResponse){
-    if(numberResponse % 2 === 0){
-        alert(`${numberResponse} is an even number.`);
-    } else {
-        alert(`${numberResponse} is an odd number.`);
-    }
-}
-// Adds the user input to 100
-function numberPlus100(numberResponse) {
-    alert(parseInt(numberResponse) + 100);
-}
-// Checks the user input to determine if it is negative or positive
-function isNegativeOrPositive(numberResponse) {
-    if(numberResponse.charAt(0) === '-' ){
-        alert(`${numberResponse} is a negative number.`);
-    } else {
-        alert(`${numberResponse} is a positive number`);
-    }
-}
-// Checks if the response is a number value and calls the three functions for output
-function responseToUser(numberResponse){
-    if(isNaN(numberResponse)){
-        alert(`${numberResponse} is the incorrect data type. Data type is a ${typeof numberResponse}.`);
-    } else {
-        isEvenOrOdd(numberResponse);
-        numberPlus100(numberResponse);
-        isNegativeOrPositive(numberResponse);
-    }
-}
-responseToUser(userNumber);
+// let userResponse = confirm('Would you like to enter a number?');
+// // Function to verify the user wants to enter a number
+// function userVerify(userResponse){
+//     if(userResponse === true){
+//         return prompt("What is the number you would like to enter?");
+//     } else {
+//          return alert("You choose not to enter a number!");
+//     }
+// }
+// // Stored the result of the userVerify function
+// let userNumber = userVerify(userResponse);
+// // Checks the user response for even or odd
+// function isEvenOrOdd(numberResponse){
+//     if(numberResponse % 2 === 0){
+//         alert(`${numberResponse} is an even number.`);
+//     } else {
+//         alert(`${numberResponse} is an odd number.`);
+//     }
+// }
+// // Adds the user input to 100
+// function numberPlus100(numberResponse) {
+//     alert(parseInt(numberResponse) + 100);
+// }
+// // Checks the user input to determine if it is negative or positive
+// function isNegativeOrPositive(numberResponse) {
+//     if(numberResponse.charAt(0) === '-' ){
+//         alert(`${numberResponse} is a negative number.`);
+//     } else {
+//         alert(`${numberResponse} is a positive number`);
+//     }
+// }
+// // Checks if the response is a number value and calls the three functions for output
+// function responseToUser(numberResponse){
+//     if(isNaN(numberResponse)){
+//         alert(`${numberResponse} is the incorrect data type. Data type is a ${typeof numberResponse}.`);
+//     } else {
+//         isEvenOrOdd(numberResponse);
+//         numberPlus100(numberResponse);
+//         isNegativeOrPositive(numberResponse);
+//     }
+// }
+// responseToUser(userNumber);
 
 // console.log(isNegativeOrPositive(userVerify(userResponse)));
 // Create a file named conditionals.js inside the js directory.

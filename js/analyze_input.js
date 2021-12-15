@@ -44,7 +44,7 @@ function isEqualToZero(someInputNumber) {
         console.log(`${someInputNumber} is less than 0.`);
     }
 }
-// Determine the length of the string and call a function based on that lenght
+// Determine the length of the string and call a function based on that length
 // If string length is 1 execute determineIsVowel function
 // If string length is more than 1 execute printLengthOfString function
 function determineStringLength(someString){
