@@ -42,19 +42,71 @@
     // 4. Thinking about getFizzBuzz(startingNum), let's console log the return value of this function
     //      What if getFizzBuzz doesn't return a value (VOID)?
     //      How do you want to handle that?
-    function getFizzBuzz(startingNum) {
+    // function getFizzBuzz(startingNum) {
+    //     if (startingNum % 3 === 0 && startingNum % 5 === 0) {
+    //         return 'FIZZ BUZZ'
+    //     } else if (startingNum % 3 === 0) {
+    //         console.log('fizz');
+    //     } else if (startingNum % 5 === 0) {
+    //         console.log('buzz');
+    //     }
+    // }
+    //
+    // function isFizzBuzzUnk(tests) {
+    //     if (tests) {
+    //         console.log(tests)
+    //     }
+    // }
+    //
+    // function testCaseFizzBuzz() {
+    //     isFizzBuzzUnk(getFizzBuzz(3));
+    //     isFizzBuzzUnk(getFizzBuzz(5));
+    //     isFizzBuzzUnk(getFizzBuzz(15));
+    // }
+    //
+    // testCaseFizzBuzz()
 
-        if (startingNum % 3 === 0 && startingNum % 5 === 0) {
-            return 'FIZZ BUZZ'
-        } else if (startingNum % 3 === 0) {
-            console.log('fizz');
-        } else if (startingNum % 5 === 0) {
-            console.log('buzz');
+    // 1. Define a function named getPassword() which performs the following actions:
+    //     Using prompt(), alert(), variables, and a while-loop, ask the user to input their password until their entry matches your hard-coded password value.
+    // function getPassword(){
+    //     let passwordCorrect = false;
+    //     let attempts = 1;
+    //     const password = 'Password';
+    //     while (passwordCorrect === false) {
+    //         const answer = prompt('What is your password');
+    //         if (answer !== password) {
+    //             if (attempts < 3) {
+    //                 attempts++;
+    //             } else if (attempts === 3) {
+    //                 alert('You are locked out for too many attempts');
+    //                 break;
+    //             }
+    //         } else if ( answer === password) {
+    //             alert('That is the correct password');
+    //             passwordCorrect = true;
+    //         }
+    //     }
+    // }
+    // getPassword();
+    function getMeaningOfLife(meaningfulNum) {
+        let counter = 0;
+        let actualNumber = parseInt(meaningfulNum);
+        if(!isNaN(actualNumber)){
+            while(counter !== actualNumber) {
+                counter++;
+            }
+            console.log(`The meaning of life, the universe, and everything is ${counter}`);
+        } else {
+            console.log(`"${meaningfulNum}" is invalid. Please enter a number`);
+        }
+        if(actualNumber === 42) {
+            console.log('Did you bring a towel?')
         }
     }
-let getFizzUnK =getFizzBuzz(5);
-if(getFizzUnK) {
-    console.log(getFizzUnK)
-}
+    getMeaningOfLife(32);
+    getMeaningOfLife('s');
+    getMeaningOfLife('');
+    getMeaningOfLife(undefined);
+    getMeaningOfLife("42");
 
 }());
