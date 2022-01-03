@@ -12,7 +12,6 @@
     //     console.log('You cannot have the loan')
     // }
 
-
     // 12/13/21
     //Declare a function called 'isFive' that takes in an input and returns true if that input is the number five.
     // Otherwise it should return false. let random = Math.floor((Math.random() * 5) + 1); console.log(random);
