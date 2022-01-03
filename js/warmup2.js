@@ -88,25 +88,33 @@
     //     }
     // }
     // getPassword();
+    // 1. Write a function named getMeaningOfLife which accepts one parameter, meaningfulNum.
+    //     i. This function will use a while loop to compare its current number (a variable named counter) against the meaningfulNum.
+    //     ii. While the counter is not equivalent to the meaningfulNum, continue the loop.
+    //         a. Once that condition is broken, console log a string telling the user "The meaning of life, the universe, and everything is [your meaningful number]"
+    // 2. Thinking about the above function, getMeaningOfLife, let's ask a question: What happens if the value of
+    // meaningfulNum is a non-numeric?
+    //         i. Write some code to account for this case. How the function handles the situation is up to you!
+    // 3. Let's continue with getMeaningOfLife: If the value of meaningfulNum happens to be 42, console log a
+    // separate  message at the end of the function to say: "Did you bring your towel?"
+
+    let answer = prompt('Enter a number');
     function getMeaningOfLife(meaningfulNum) {
-        let counter = 0;
         let actualNumber = parseInt(meaningfulNum);
-        if(!isNaN(actualNumber)){
+        let counter = 0;
+
+        if(actualNumber){
             while(counter !== actualNumber) {
                 counter++;
             }
-            console.log(`The meaning of life, the universe, and everything is ${counter}`);
+            alert(`The meaning of life, the universe, and everything is ${counter}`);
         } else {
-            console.log(`"${meaningfulNum}" is invalid. Please enter a number`);
+            alert(`"${meaningfulNum}" is invalid. Please enter a number`);
         }
         if(actualNumber === 42) {
-            console.log('Did you bring a towel?')
+            alert('Did you bring a towel?');
         }
     }
-    getMeaningOfLife(32);
-    getMeaningOfLife('s');
-    getMeaningOfLife('');
-    getMeaningOfLife(undefined);
-    getMeaningOfLife("42");
+    getMeaningOfLife(answer);
 
 }());

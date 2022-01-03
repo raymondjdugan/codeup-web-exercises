@@ -47,18 +47,21 @@
 //     Cannot sell you 6 cones I only have 3...  // If there are not enough cones
 //     Yay! I sold them all! // If there are no more cones
 
+    // let allCones = Math.floor(Math.random() * 5) + 1;
     // do {
     //     let conesBought =Math.floor(Math.random() * 5) + 1;
     //     if(conesBought <= allCones) {
     //         console.log(`${conesBought} cones sold`);
     //         allCones -= conesBought;
     //     } else if(conesBought > allCones) {
-    //         console.log(`Cannot sell you ${conesBought} I only have ${allCones}`);
+    //         console.log(`Cannot sell you ${conesBought} cones, as I only have ${allCones} cones`);
     //     }
     // } while (allCones > 0);
     // console.log(`Yay! I sold them all!`);
-//     // TODO: MINI EXERCISE
-// //TODO: print all even numbers between 0 and 25;
+
+
+// TODO: MINI EXERCISE
+// TODO: print all even numbers between 0 and 25;
 // let counter = 0 ;
 // while (counter >= 0 && counter < 25) {
 //     if (counter % 2 === 0){
