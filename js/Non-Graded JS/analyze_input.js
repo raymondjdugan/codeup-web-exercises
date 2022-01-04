@@ -15,6 +15,7 @@
 // Determining if the length 1 string is a vowel or not
 // Add, commit, and push to GitHub.
 
+// Initialize userInput to a prompt
 let userInput = prompt('Enter a number or a string. I.E. 5 or C or Cola.');
 // Function to determine the type of the input
 function analyzeInput(someInputFromUser) {

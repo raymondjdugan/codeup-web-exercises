@@ -8,26 +8,28 @@
     // Yikes! Skipping number: 27 Here is an odd number: 29 Here is an odd number: 31 Here is an odd number: 33 Here is
     // an odd number: 35 Here is an odd number: 37 Here is an odd number: 39 Here is an odd number: 41 Here is an odd
     // number: 43 Here is an odd number: 45 Here is an odd number: 47 Here is an odd number: 49
-//     let userNumber = 0;
-//     let promptStatus = false
-//
-//     while (promptStatus === false) {
-//         let answer = prompt('Enter an odd number.');
-//         if (!isNaN(parseFloat(answer)) && parseFloat(answer) % 2 === 1 && userNumber < 50) {
-//             userNumber = parseFloat(answer);
-//             promptStatus = true;
-//             break;
-//         }
-//     }
-//
-//     function printOddSKipInput(usersNumber) {
-//         for (let i = 1; i < 50; i += 2) {
-//             if (usersNumber === i) {
-//                 console.log(`Yikes! Skipping number: ${i}`);
-//             } else {
-//                 console.log(`Here is an odd number: ${i}`);
-//             }
-//         }
-//     }
-// printOddSKipInput(userNumber);
+    let userNumber = 0;
+
+    function getUserInput() {
+        let answer = 0;
+      do {
+          answer = parseInt(prompt('Please enter a number.'))
+          if (answer >= 1 && answer <= 50) {
+              userNumber = answer;
+              break;
+          }
+      } while (answer < 1 || answer > 50)
+    }
+    getUserInput();
+
+    function printOddSKipInput(usersNumber) {
+        for (let i = 1; i < 50; i += 2) {
+            if (usersNumber === i) {
+                console.log(`Yikes! Skipping number: ${i}`);
+                continue;
+            }
+            console.log(`Here is an odd number: ${i}`);
+        }
+    }
+printOddSKipInput(userNumber);
 })();

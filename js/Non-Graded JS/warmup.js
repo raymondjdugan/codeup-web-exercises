@@ -51,44 +51,57 @@
     // }
 
     // 12/27/2011
-    // Create a function named roll. It should accept a string that describes how many times the dice is being rolled and the number of sides on the dice, for example:
-    // 3d4 means 3 4-sided dice
-    // 1d20 means 1 20-sided dice
-    // 2d6 means 2 6-sided dice
-    // The function should return an object with properties rolls: an array of the individual rolls, and total, which is the sum of the individual rolls
+    // Create a function named roll. It should accept a string that describes how many times the dice is being rolled
+    // and the number of sides on the dice, for example: 3d4 means 3 4-sided dice 1d20 means 1 20-sided dice 2d6 means
+    // 2 6-sided dice The function should return an object with properties rolls: an array of the individual rolls, and
+    // total, which is the sum of the individual rolls
 
-    // This function returns the actual object
     // function roll(rolled) {
-    //     const [timesToRoll, sizeOfDice] = rolled.split('d');
-    //     const rolledArray = [];
-    //     let rollTotal = 0;
-    //     for (let i = 0; i < timesToRoll; i++) {
-    //         const diceRoll = Math.trunc(Math.random() * sizeOfDice) + 1;
-    //         rolledArray.push(diceRoll);
-    //         rollTotal += diceRoll;
-    //     }
-    //     console.log(rollTotal);
-    //
-    //     return {
-    //         roll: rolledArray,
-    //         total: rollTotal,
-    //     };
-    // }
+//   const [timesToRoll, sizeOfDice] = rolled.split('d');
+//   const rolledArray = [];
+//   let rollTotal = 0;
+//   for (let i = 0; i < timesToRoll; i++) {
+//     const diceRoll = Math.trunc(Math.random() * sizeOfDice) + 1;
+//     rolledArray.push(diceRoll);
+//     rollTotal += diceRoll;
+//   }
 
-    //This function returns a template literal that return an object
-    // function roll(rolled) {
-    //     const [timesToRoll, sizeOfDice] = rolled.split('d');
-    //     const rolledArray = [];
-    //     let rollTotal = 0;
-    //     for (let i = 0; i < timesToRoll; i++) {
-    //         const diceRoll = Math.trunc(Math.random() * sizeOfDice) + 1;
-    //         rolledArray.push(diceRoll);
-    //         rollTotal += diceRoll;
-    //     }
-    //     return `{\n\tRoll: [${rolledArray}]\n\tTotal: ${rollTotal}\n}`;
-    // }
-    //
-    // console.log(roll('4d6'));
-    // console.log(roll('3d20'));
-    // console.log(roll('5d6'));
+//   return {
+//     roll: rolledArray,
+//     total: rollTotal,
+//   };
+// }
+
+    function roll(rolled) {
+        const gameRoll = {
+            rolls: [],
+            rollTotal: 0,
+        };
+        const [timesToRoll, sizeOfDice] = rolled.split('d');
+        for (let i = 0; i < timesToRoll; i++) {
+            const diceRoll = Math.trunc(Math.random() * sizeOfDice) + 1;
+            gameRoll.rolls.push(diceRoll);
+            gameRoll.rollTotal += diceRoll;
+        }
+        return gameRoll;
+    }
+
+    console.log(roll('4d6'));
+    console.log(roll('3d20'));
+    console.log(roll('5d6'));
+
+// function roll(rolled) {
+//  const [timesToRoll, sizeOfDice] = rolled.split('d');
+//  const rolls = [];
+//  let rollTotal = 0;
+//  for (let i = 0; i < timesToRoll; i++) {
+//      const diceRoll = Math.trunc(Math.random() * sizeOfDice) + 1;
+//      rolls.push(diceRoll);
+//      rollTotal += diceRoll;
+//  }
+
+//  return `{\n\trolls: [${rolls.join(', ')}],\n\ttotal: ${rollTotal},\n}`;
+// }
+
+
 })();

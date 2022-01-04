@@ -1,4 +1,4 @@
-(function() {
+(function () {
     "use strict";
 
     /**
@@ -11,7 +11,17 @@
      *  > console.log(person.firstName) // "Rick"
      *  > console.log(person.lastName) // "Sanchez"
      */
+    const person = {
+        firstName: 'Raymond',
+        lastName: 'Dugan',
+        sayHello(firstName, lastName) {
+            return `Hello, ${this.firstName} ${this.lastName}.`
+        },
+    }
 
+    console.log(person.firstName);
+    console.log(person.lastName);
+    console.log('--------------------------')
     /**
      * TODO:
      * Add a sayHello method to the person object that returns a greeting using
@@ -21,7 +31,8 @@
      * Example
      * > console.log(person.sayHello()) // "Hello from Rick Sanchez!"
      */
-
+    console.log(person.sayHello())
+    console.log('--------------------------')
     /** TODO:
      * HEB has an offer for the shoppers that buy products amounting to
      * more than $200. If a shopper spends more than $200, they get a 12%
@@ -36,12 +47,21 @@
      * and console.log the relevant messages for each person
      */
 
-    // var shoppers = [
-    //     {name: 'Cameron', amount: 180},
-    //     {name: 'Ryan', amount: 250},
-    //     {name: 'George', amount: 320}
-    // ];
-
+    var shoppers = [
+        {name: 'Cameron', amount: 180},
+        {name: 'Ryan', amount: 250},
+        {name: 'George', amount: 320}
+    ];
+    shoppers.forEach(shopper => {
+        const qualify = shopper.amount > 200 ? 'qualifies for 12% discount' : 'does not qualify for a discount';
+        console.log(
+            `${shopper.name} spent $${shopper.amount} which ${qualify}. ${shopper.name}'s total is $${qualify === true ?
+                                                                                                      shopper.amount -
+                                                                                                          (shopper.amount *
+                                                                                                              .12) :
+                                                                                                      shopper.amount}.`)
+    })
+    console.log('--------------------------')
     /** TODO:
      * Create an array of objects that represent books and store it in a
      * variable named `books`. Each object should have a title and an author
@@ -54,7 +74,43 @@
      * > console.log(books[0].author.firstName) // "Douglas"
      * > console.log(books[0].author.lastName) // "Adams"
      */
-
+    const books = [
+        {
+            title: 'Harry Potter and the Deathly Hallows',
+            author: {
+                firstName: 'Jo',
+                lastName: 'Rowling',
+            },
+        },
+        {
+            title: 'Furies of Calderon',
+            author: {
+                firstName: 'Jim',
+                lastName: 'Butcher',
+            },
+        },
+        {
+            title: 'Fool Moon',
+            author: {
+                firstName: 'Jim',
+                lastName: 'Butcher',
+            },
+        },
+        {
+            title: 'Ghost Story',
+            author: {
+                firstName: 'Jim',
+                lastName: 'Butcher',
+            },
+        },
+        {
+            title: 'Harry Potter and the Order of the Phoenix',
+            author: {
+                firstName: 'Jo',
+                lastName: 'Rowling',
+            },
+        },
+    ];
     /**
      * TODO:
      * Loop through the books array and output the following information about
@@ -79,16 +135,46 @@
      *      ---
      *      ...
      */
-
+    books.forEach((book, i) => console.log(
+        `Book #${i + 1}\nTitle: ${book.title}\nAuthor: ${book.author.firstName} ${book.author.lastName}\n---`))
     /**
      * Bonus:
      * - Create a function named `createBook` that accepts a title and author
      *   name and returns a book object with the properties described
-     *   previously. Refactor your code that creates the books array to instead
+     *   previously.
+     *   Refactor your code that creates the books array to instead
      *   use your function.
      * - Create a function named `showBookInfo` that accepts a book object and
      *   outputs the information described above. Refactor your loop to use your
      *   `showBookInfo` function.
      */
+    const books2 = [];
+    const createBook = function (bookTitle, bookAuthor) {
+
+        const [authorFirstName, authorLastName] = bookAuthor.split(' ');
+        let book = {
+            title: bookTitle,
+            author: {
+                firstName: authorFirstName,
+                lastName: authorLastName,
+            }
+        }
+        books2.push(book);
+    }
+
+    const favBooks = function () {
+        createBook('Harry Potter and the Deathly Hallows', 'Jo Rowling')
+        createBook('Furies of Calderon', 'Jim Butcher')
+        createBook('Fool Moon', 'Jim Butcher')
+        createBook('Ghost Story', 'Jim Butcher')
+        createBook('Harry Potter and the Order of the Phoenix', 'Jo Rowling')
+    }
+    favBooks();
+
+    const showBookInfo = function (bookArray) {
+        bookArray.forEach((book, i) => console.log(
+            `Book #${i + 1}\nTitle: ${book.title}\nAuthor: ${book.author.firstName} ${book.author.lastName}\n---`))
+    }
+    showBookInfo(books2);
 
 })();

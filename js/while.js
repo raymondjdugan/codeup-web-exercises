@@ -22,13 +22,13 @@
     // 32768
     // 65536
     //ANSWER:
-    // let i = 0;
-    // let num = 2;
-    // while (i <= 14) {
-    //     num = num * 2;
-    //     i++;
-    //     console.log(num);
-    // }
+    let i = 0;
+    let num = 2;
+    while (i <= 14) {
+        num = num * 2;
+        i++;
+        console.log(num);
+    }
 
 // An ice cream seller can't go home until she sells all of her cones. First write enough code that generates a
 // random number between 50 and 100 representing the amount of cones to sell before you start your loop. Inside of the
@@ -47,27 +47,33 @@
 //     Cannot sell you 6 cones I only have 3...  // If there are not enough cones
 //     Yay! I sold them all! // If there are no more cones
 
-    // let allCones = Math.floor(Math.random() * 5) + 1;
-    // do {
-    //     let conesBought =Math.floor(Math.random() * 5) + 1;
-    //     if(conesBought <= allCones) {
-    //         console.log(`${conesBought} cones sold`);
-    //         allCones -= conesBought;
-    //     } else if(conesBought > allCones) {
-    //         console.log(`Cannot sell you ${conesBought} cones, as I only have ${allCones} cones`);
-    //     }
-    // } while (allCones > 0);
-    // console.log(`Yay! I sold them all!`);
+    // Random number for allCones between 1-50
+    let allCones = Math.floor(Math.random() * 50) + 1;
+    do {
+        // Random number for how many cones bought
+        const conesBought =Math.floor(Math.random() * 5) + 1;
+        // If the conesBought is greater than allCones, log message and continue
+        if(conesBought > allCones) {
+            console.log(`Cannot sell you ${conesBought} cones, as I only have ${allCones} cones`);
+            continue;
+        }
+        // Subtracting conesBought from allCones
+        allCones -= conesBought;
+        // Logging how many cones are left
+        console.log(`${conesBought} cones sold`);
+
+    } while (allCones > 0);
+    console.log(`Yay! I sold them all!`);
 
 
 // TODO: MINI EXERCISE
 // TODO: print all even numbers between 0 and 25;
-// let counter = 0 ;
-// while (counter >= 0 && counter < 25) {
-//     if (counter % 2 === 0){
-//         console.log(counter)
-//     }
-//     counter++;
-// }
+let counter = 0 ;
+while (counter >= 0 && counter < 25) {
+    if (counter % 2 === 0){
+        console.log(counter)
+    }
+    counter++;
+}
 
 })();
