@@ -22,11 +22,11 @@
     // 32768
     // 65536
     //ANSWER:
-    let i = 0;
-    let num = 2;
-    while (i <= 14) {
-        num = num * 2;
-        i++;
+    let number = 0;
+    let num = 1;
+    while (number <= 15) {
+        num *= 2;
+        number++;
         console.log(num);
     }
 

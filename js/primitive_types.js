@@ -1,3 +1,6 @@
+(function () {
+// TODO: Identify the data type of the following values:
+
 // 99.9 = Number
 console.log(typeof 99.9);
 // 'false' = String
@@ -12,3 +15,5 @@ console.log(typeof 0);
 console.log(typeof true);
 // 'true' = string
 console.log(typeof 'true');
+
+})();

@@ -14,7 +14,7 @@
     const person = {
         firstName: 'Raymond',
         lastName: 'Dugan',
-        sayHello(firstName, lastName) {
+        sayHello() {
             return `Hello, ${this.firstName} ${this.lastName}.`
         },
     }
@@ -52,14 +52,11 @@
         {name: 'Ryan', amount: 250},
         {name: 'George', amount: 320}
     ];
+
     shoppers.forEach(shopper => {
         const qualify = shopper.amount > 200 ? 'qualifies for 12% discount' : 'does not qualify for a discount';
         console.log(
-            `${shopper.name} spent $${shopper.amount} which ${qualify}. ${shopper.name}'s total is $${qualify === true ?
-                                                                                                      shopper.amount -
-                                                                                                          (shopper.amount *
-                                                                                                              .12) :
-                                                                                                      shopper.amount}.`)
+            `${shopper.name} spent $${shopper.amount} which ${qualify}. ${shopper.name}'s total is $${qualify === true ?                                                                                                shopper.amount - (shopper.amount * .12) : shopper.amount}.`)
     })
     console.log('--------------------------')
     /** TODO:

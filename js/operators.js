@@ -1,4 +1,8 @@
-// '1' + 2 = 12
+
+// TODO: For each of the following code blocks
+//  1. Read the expression and predict what the result of evaluating it would be
+//  2. execute the expression in the Chrome console.
+//  '1' + 2 = 12
 console.log('1' + 2);
 // typeof '1' + 2 = string2
 console.log(typeof '1' + 2);
