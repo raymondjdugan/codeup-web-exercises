@@ -1,6 +1,5 @@
 (function() {
     "use strict";
-
     // create a circle object
     let circle = {
         radius: 3,

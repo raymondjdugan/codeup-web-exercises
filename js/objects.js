@@ -14,9 +14,6 @@
     const person = {
         firstName: 'Raymond',
         lastName: 'Dugan',
-        sayHello() {
-            return `Hello, ${this.firstName} ${this.lastName}.`
-        },
     }
 
     console.log(person.firstName);
@@ -31,6 +28,9 @@
      * Example
      * > console.log(person.sayHello()) // "Hello from Rick Sanchez!"
      */
+    person.sayHello = function(){
+        return `Hello from ${this.firstName} ${this.lastName}`
+    }
     console.log(person.sayHello())
     console.log('--------------------------')
     /** TODO:
@@ -157,6 +157,7 @@
             }
         }
         books2.push(book);
+        //array.push(obj)
     }
 
     const favBooks = function () {
