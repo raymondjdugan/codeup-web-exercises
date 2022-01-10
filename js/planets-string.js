@@ -11,7 +11,7 @@
      * console.log planetsArray to check your work
      */
     planetsArray = planetsString.split('|')
-    console.log(planetsArray);
+    // console.log(planetsArray);
 
     /**
      * TODO:
@@ -25,12 +25,24 @@
      */
     // let brString = planetsArray.join('<br>');
     // console.log(brString);
-    //
-    // let listString = function(array) {
-    //     let listArray = array.slice()
-    //     listArray.push('<ul>');
-    //     listArray.unshift('<ul>');
-    //     return listArray.join('<li>');
+
+
+    function addList(array){
+        let li = '';
+        for (let i = 0; i < array.length; i++) {
+            li += `<li>${array[i]}</li>`
+        }
+        return `<ul>${li}</ul>`
+    }
+
+    // function addList2(array){
+    //     let newPlanets = array.slice()
+    //     for (let i = 0; i < newPlanets.length; i++) {
+    //         newPlanets.slice(i,0, '<li>')
+    //     }
+    //     return newPlanets;
     // }
-    // console.log(listString(planetsArray));
+
+    // console.log(addList2(planetsArray))
+    console.log(addList(planetsArray));
 })();
