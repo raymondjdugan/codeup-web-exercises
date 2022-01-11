@@ -7,8 +7,8 @@
 <body>
 <form method="POST" action="https://request-inspector.glitch.me/" target="_blank">
     <h1>Raymond's Codeup Form</h1>
-<!--<form action="https://www.elformo.com/forms/66bb8229-af5c-457a-b0e9-e5910aa2f299" method="post" accept-charset="UTF-8">-->
-    <fieldset style="width: 0px">
+    <!--<form action="https://www.elformo.com/forms/66bb8229-af5c-457a-b0e9-e5910aa2f299" method="post" accept-charset="UTF-8">-->
+    <fieldset style="width: 0">
         <legend>User Information</legend>
         <label for="username"></label>
         <input id="username" type="text" placeholder="Username">
@@ -20,19 +20,16 @@
         <textarea name="bio" id="bio" placeholder="Bio" cols="30" rows="10"></textarea>
     </fieldset>
     <fieldset style="width: 245px">
-       <legend>How Did You Hear About Us</legend>
-        <input type="radio" id="billboard" name="billboard" value="Billboard">
-        <label for="billboard">Billboard</label>
-        <br>
-        <input type="radio" id="radio advertisement" name="radio advertisement" value="radio advertisement">
-        <label for="radio advertisement">Radio Advertisement</label>
-        <br>
-        <input type="radio" id="internet advertisement" name="internet advertisement" value="internet advertisement">
-        <label for="internet advertisement">Internet Advertisement</label>
-        <br>
-        <input type="radio" id="other" name="other" value="other">
-        <label for="other">Other</label>
-        <br>
+        <legend>How Did You Hear About Us</legend>
+        <label for="find-out">
+            <input type="checkbox" id="find-out" name="find-out" value="billboard">Billbaord
+            <br>
+            <input type="checkbox" id="find-out" name="find-out" value="radio advertisement">Radio Advertisement
+            <br>
+            <input type="checkbox" id="find-out" name="find-out" value="internet advertisement"> Internet Advertisement
+            <br>
+            <input type="checkbox" id="find-out" name="find-out" value="other"> Other
+        </label>
         <p>What Browser Are You Using</p>
         <label for="browser"></label>
         <select name="browser" id="browser">
