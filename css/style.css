@@ -1,54 +1,38 @@
 @import url("https://fonts.googleapis.com/css?family=Sofia&effect=fire|neon|outline|emboss|shadow-multiple");
-
 body {
-    background-color: #EEA47FFF;
-    /*background-image: url(https://images.pexels.com/photos/965345/pexels-photo-965345.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260);*/
-    /*background-repeat: no-repeat;*/
-    /*background-size: 200px, 300px;*/
-    /*background-position:  center top;*/
-    font-family: "Sofia", sans-serif;
+    background-image: url(/img/tech.jpg);
+    background-blend-mode: lighten;
+    font-family: sans-serif;
     font-size: 18px;
-
+    color: #FEF9EF;
 }
-
-.welcome-message {
-    background-color: black;
+header {
+    text-align: center;
 }
 h1, h2 {
-    color: #00539CFF;
+    color: #FEF9EF;
     text-decoration: underline;
 }
-
 main h1 {
     text-align: center;
 }
-
 ul {
     list-style-type: square;
 }
-
 table {
     font-size: 15px;
     padding: 30px;
     width: 35%
 }
-
 table, th, td {
     border: 1px solid black;
     border-collapse: collapse;
     text-align: center;
 }
-
 a {
-    color: #00539CFF;
+    color: #FEF9EF;
     text-decoration: none;
 }
-
 a:hover {
     color: black;
-}
-
-
-footer {
-    background-color: black;
 }
