@@ -1,12 +1,16 @@
 @import url("https://fonts.googleapis.com/css?family=Sofia&effect=fire|neon|outline|emboss|shadow-multiple");
 body {
+    background-color: darkblue;
     background-image: url(/img/tech.jpg);
     background-blend-mode: lighten;
-    font-family: sans-serif;
+    font-family: "Trebuchet MS", sans-serif;
     font-size: 18px;
-    color: #FEF9EF;
+    color: #FFFFFF;
 }
 header {
+    text-align: center;
+}
+footer {
     text-align: center;
 }
 h1, h2 {
@@ -25,9 +29,10 @@ table {
     width: 35%
 }
 table, th, td {
-    border: 1px solid black;
+    border: 3px solid white;
     border-collapse: collapse;
     text-align: center;
+    padding: 6px;
 }
 a {
     color: #FEF9EF;
@@ -35,4 +40,11 @@ a {
 }
 a:hover {
     color: black;
+}
+.images {
+    margin: 0 auto;
+    text-align: center;
+}
+.images img {
+    width: calc(25% - 8px)
 }
