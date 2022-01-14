@@ -3,34 +3,38 @@
 <head>
     <meta charset="UTF-8">
     <title>Register With Us</title>
+    <link rel="stylesheet" href="css/veridian-register.css">
 </head>
 <body>
 <form method="POST" action="https://request-inspector.glitch.me/" target="_blank">
-    <h1>Raymond's Codeup Form</h1>
-    <!--<form action="https://www.elformo.com/forms/66bb8229-af5c-457a-b0e9-e5910aa2f299" method="post" accept-charset="UTF-8">-->
-    <fieldset style="width: 0">
-        <legend>User Information</legend>
-        <label for="username"></label>
-        <input id="username" type="text" placeholder="Username">
-        <br>
-        <label for="password"></label>
-        <input id="password" type="password" placeholder="Password">
-        <br>
-        <label for="bio"></label>
-        <textarea name="bio" id="bio" placeholder="Bio" cols="30" rows="10"></textarea>
-    </fieldset>
-    <fieldset style="width: 245px">
-        <legend>How Did You Hear About Us</legend>
-        <label for="find-out">
-            <input type="checkbox" id="find-out" name="find-out" value="billboard">Billbaord
-            <br>
-            <input type="checkbox" id="find-out" name="find-out" value="radio advertisement">Radio Advertisement
-            <br>
-            <input type="checkbox" id="find-out" name="find-out" value="internet advertisement"> Internet Advertisement
-            <br>
-            <input type="checkbox" id="find-out" name="find-out" value="other"> Other
+    <div class="about">
+        <h1>Register With Us</h1>
+        <label for="username">Username:</label>
+        <div class="input">
+            <input id="username" type="text" placeholder="Username">
+        </div>
+        <label for="password">Password:</label>
+        <div class="input">
+            <input id="password" type="password" placeholder="Password">
+        </div>
+        <label for="bio">About You:</label>
+        <textarea name="bio" id="bio" placeholder="Bio"></textarea>
+    </div>
+    <div id="selections">
+        <h2>How Did You Hear About Us?</h2>
+        <label class="container">Billboard
+            <input type="checkbox">
         </label>
-        <p>What Browser Are You Using</p>
+        <label class="container">Radio Advertisement
+            <input type="checkbox">
+        </label>
+        <label class="container">Internet Advertisement
+            <input type="checkbox">
+        </label>
+        <label class="container">Other
+            <input type="checkbox">
+        </label>
+        <h2>What Browser Are You Using</h2>
         <label for="browser"></label>
         <select name="browser" id="browser">
             <option value="Chrome">Chrome</option>
@@ -38,10 +42,10 @@
             <option value="Safari">Safari</option>
             <option value="Edge">Edge</option>
         </select>
-    </fieldset>
-    <br>
-    <label for="submit"></label>
-    <input id="submit" type="Submit">
+    </div>
+    <label for="submit">
+        <input id="submit" type="Submit">
+    </label>
 </form>
 </body>
 </html>

@@ -35,7 +35,6 @@ h2, h3 {
     margin: 0 auto;
     /* enter needed declarations here */
     display: flex;
-    align-content: space-evenly;
     justify-content: space-evenly;
     flex-direction: column;
 }
