@@ -78,23 +78,40 @@
     // console.log(DNAStrand('AAAA'));
     // console.log(DNAStrand('ATTGC'));
 
-    function getSum(a, b) {
-        let total = 0;
+    // function getSum(a, b) {
+    //     let total = 0;
+    //
+    //     // Enter needed code here
+    //
+    //     return total;
+    // }
+    //
+    // console.log(getSum(0, -1)); //Expected -1
+    // console.log(getSum(2, 2)); //Expected 2
+    // console.log(getSum(1, 5)); //Expected 15
+    //
+    // if(a > b) {
+    //     b = [a, a = b][0];
+    // }
+    // for (let i = a; i <= b ; i++) {
+    //     total += i;
+    // }
 
-        // Enter needed code here
-
-        return total;
+    function duplicateEncode(word) {
+        let finalString = '';
+        let wordCount = [...word].reduce((a, e) => { a[e] = a[e] ? a[e] + 1 : 1; return a }, {});
+        for (let char in word) {
+            for (let [key, value] of Object.entries(wordCount)) {
+                if(char === key && value > 1) {
+                    finalString += ')';
+                } else {
+                    finalString += '(';
+                }
+            }
+        }
+        return finalString;
     }
 
-    console.log(getSum(0, -1)); //Expected -1
-    console.log(getSum(2, 2)); //Expected 2
-    console.log(getSum(1, 5)); //Expected 15
-
-    if(a > b) {
-        b = [a, a = b][0];
-    }
-    for (let i = a; i <= b ; i++) {
-        total += i;
-    }
+    console.log(duplicateEncode('recede'));
 })();
 
