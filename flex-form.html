@@ -8,7 +8,8 @@
 <body>
 <div class="cover">
     <form action="#" class="flex-form">
-        <input type="search" class="destination" placeholder="Destination, hotel, airport">
+        <label for="dest"></label>
+        <input type="search" id="dest" class="destination" placeholder="Destination, hotel, airport">
 
         <label for="from">From</label>
         <input type="date" id="from">
@@ -16,7 +17,8 @@
         <label for="to">To</label>
         <input type="date" id="to">
 
-        <select name="travelers">
+        <label for="party"></label>
+        <select id="party" name="travelers">
             <option value="1">1 Traveler</option>
             <option value="2">2 Travelers</option>
             <option value="3">3 Travelers</option>
@@ -27,9 +29,9 @@
     </form>
 </div>
 <video autoplay muted loop class="puppiness">
-    <source src="cover/puppiness.webm">
-    <source src="cover/puppiness.mp4">
-    <source src="cover/puppiness.ogv">
+    <source src="css/puppiness.webm">
+    <source src="css/puppiness.mp4">
+    <source src="css/puppiness.ogv">
 </video>
 </body>
 </html>
