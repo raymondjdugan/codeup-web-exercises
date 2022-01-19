@@ -12,16 +12,10 @@
 .jumbotron h1 {
     background-color: rgba(255,255,255,.7) ;
     text-align: center;
-    width: 100%;
 }
 
 .card {
-    margin-top: 5px;
-}
-.main-header {
-    padding: 0;
-    background-color: dodgerblue;
-    color: white;
+    margin-top: 10px;
 }
 
 .card-title {
@@ -29,11 +23,3 @@
     padding: 12px 20px 11px 20px;
 }
 
-.card-footer .btn {
-    color: white;
-    background-color: dodgerblue;
-}
-
-select {
-    width: 50%;
-}
