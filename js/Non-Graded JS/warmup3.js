@@ -97,21 +97,44 @@
     //     total += i;
     // }
 
-    function duplicateEncode(word) {
-        let finalString = '';
-        let wordCount = [...word].reduce((a, e) => { a[e] = a[e] ? a[e] + 1 : 1; return a }, {});
-        for (let char in word) {
-            for (let [key, value] of Object.entries(wordCount)) {
-                if(char === key && value > 1) {
-                    finalString += ')';
-                } else {
-                    finalString += '(';
-                }
-            }
-        }
-        return finalString;
-    }
+    // function duplicateEncode(word) {
+    //     let finalString = '';
+    //     let wordCount = [...word].reduce((a, e) => { a[e] = a[e] ? a[e] + 1 : 1; return a }, {});
+    //     for (let char in word) {
+    //         for (let [key, value] of Object.entries(wordCount)) {
+    //             if(char === key && value > 1) {
+    //                 finalString += ')';
+    //             } else {
+    //                 finalString += '(';
+    //             }
+    //         }
+    //     }
+    //     return finalString;
+    // }
+    //
+    // console.log(duplicateEncode('recede'));
 
-    console.log(duplicateEncode('recede'));
+    let myCats = [
+        {
+            catName: "Fifi",
+            age: 5
+        },
+        {
+            catName: "Fluffy",
+            age: 3
+        },
+        {
+            catName: "Abby",
+            age: 7
+        }
+    ];
+
+    function getNthCat(someArray, indexToGet) {
+        return someArray[indexToGet];
+    }
+    // print out the cat at index 1
+    console.log(getNthCat(myCats, 1));
+    console.log(getNthCat(myCats, 0));
+    console.log(getNthCat(myCats, myCats.length-1));
 })();
 
