@@ -71,6 +71,16 @@
                     Toppings
                 </a>
             </li>
+            <li>
+                <div class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button">Pizza Options</a>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" id="size-tab-btn" href="#size">Size</a>
+                        <a class="dropdown-item" id="cheese-tab-btn">Cheese and Sauce</a>
+                        <a class="dropdown-item" id="toppings-tab-btn">Toppings</a>
+                    </div>
+                </div>
+            </li>
         </ul>
 
         <!--Tab Content-->
@@ -308,13 +318,26 @@
         integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx"
         crossorigin="anonymous"></script>
 <script>
-    $('#to-cheese').on('click', function (e) {
+    $('#size-tab-btn').on('click', function (e) {
         e.preventDefault()
-        $('#myTab li:nth-child(2) a').tab('show')
+        $('#myTab li:nth-child(1) a').tab('show')
     })
     $('#to-size').on('click', function (e) {
         e.preventDefault()
         $('#myTab li:nth-child(1) a').tab('show')
+    })
+    $('#cheese-tab-btn').on('click', function (e) {
+        e.preventDefault()
+        $('#myTab li:nth-child(2) a').tab('show')
+    })
+    $('#to-cheese').on('click', function (e) {
+        e.preventDefault()
+        $('#myTab li:nth-child(2) a').tab('show')
+    })
+
+    $('#toppings-tab-btn').on('click', function (e) {
+        e.preventDefault()
+        $('#myTab li:nth-child(3) a').tab('show')
     })
     $('#to-toppings').on('click', function (e) {
         e.preventDefault()
