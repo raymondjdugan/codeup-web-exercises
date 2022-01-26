@@ -114,27 +114,52 @@
     //
     // console.log(duplicateEncode('recede'));
 
-    let myCats = [
-        {
-            catName: "Fifi",
-            age: 5
-        },
-        {
-            catName: "Fluffy",
-            age: 3
-        },
-        {
-            catName: "Abby",
-            age: 7
-        }
-    ];
+    // let myCats = [
+    //     {
+    //         catName: "Fifi",
+    //         age: 5
+    //     },
+    //     {
+    //         catName: "Fluffy",
+    //         age: 3
+    //     },
+    //     {
+    //         catName: "Abby",
+    //         age: 7
+    //     }
+    // ];
+    //
+    // function getNthCat(someArray, indexToGet) {
+    //     return someArray[indexToGet];
+    // }
+    // // print out the cat at index 1
+    // console.log(getNthCat(myCats, 1));
+    // console.log(getNthCat(myCats, 0));
+    // console.log(getNthCat(myCats, myCats.length-1));
 
-    function getNthCat(someArray, indexToGet) {
-        return someArray[indexToGet];
+    // TODO: Write a function called reverseString that takes in a string
+    //  And returns a string that has the characters of the original string in reverse order.
+    //     example: reverseString('hello') - returns 'olleh'
+
+    // const reverseString = function(phrase) {
+    //     return phrase.split('').reverse().join('');
+    // }
+
+    // const reverseStringLoop = function (phrase) {
+    //     let reverseString = '';
+    //     for (let i = phrase.length - 1; i > 0; i--) {
+    //         reverseString += phrase[i];
+    //     }
+    //     return reverseString;
+    // }
+
+    // console.log(reverseString('hello'));
+    // console.log(reverseString('never odd or even'));
+
+    function findAverage(arrayOfNums) {
+        return arrayOfNums.reduce((a, b) => (a + b)) / arrayOfNums.length;
     }
-    // print out the cat at index 1
-    console.log(getNthCat(myCats, 1));
-    console.log(getNthCat(myCats, 0));
-    console.log(getNthCat(myCats, myCats.length-1));
+
+    console.log(findAverage([95, 74, 86, 100]));
 })();
 
