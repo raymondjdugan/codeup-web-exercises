@@ -156,10 +156,15 @@
     // console.log(reverseString('hello'));
     // console.log(reverseString('never odd or even'));
 
-    function findAverage(arrayOfNums) {
-        return arrayOfNums.reduce((a, b) => (a + b)) / arrayOfNums.length;
-    }
+    // function findAverage(arrayOfNums) {
+    //     return arrayOfNums.reduce((a, b) => (a + b)) / arrayOfNums.length;
+    // }
+    //
+    // console.log(findAverage([95, 74, 86, 100]));
 
-    console.log(findAverage([95, 74, 86, 100]));
+    // function sumOfSquares(num1, num2) {
+    //     return Math.pow(num1, 2) + Math.pow(num2, 2)
+    // }
+    // console.log(sumOfSquares(2, 3));
 })();
 
