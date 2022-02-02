@@ -124,8 +124,20 @@
         })
 
         redBtn.addEventListener('click', function () {
-            document.querySelector('body').innerHTML = '';
-            document.querySelector('body').classList.add('gif');
+            const body = document.querySelector('body');
+            body.style.fontSize = '110px';
+            body.style.textAlign = 'center';
+            body.style.height = '100vh';
+            body.style.display = 'flex';
+            body.style.justifyContent = 'center';
+            body.style.alignItems = 'center';
+            body.innerHTML = 'YOU CUT THE WRONG WIRE';
+
+            setTimeout(function (){
+                document.querySelector('body').innerHTML = '';
+                document.querySelector('body').classList.add('gif');
+            }, 5000)
+
         })
     })();
 </script>

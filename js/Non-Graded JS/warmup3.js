@@ -166,5 +166,24 @@
     //     return Math.pow(num1, 2) + Math.pow(num2, 2)
     // }
     // console.log(sumOfSquares(2, 3));
+
+    function whichStringIsLonger(string1, string2){
+        if (typeof string1 === 'string' && typeof string2 === "string"){
+            if (string1.length === string2.length) {
+                return 'neither'
+            } else {
+                return string1.length > string2.length ? 'first' : 'second'
+            }
+
+        } else {
+            return false
+        }
+    }
+
+    console.log(whichStringIsLonger("bobby", "lou")); // returns first
+    console.log(whichStringIsLonger("bob", "louise")); // returns second
+    console.log(whichStringIsLonger("bob", "lou")); // returns neither
+    console.log(whichStringIsLonger("bobby", 2)); // returns false
+    console.log(whichStringIsLonger(1, "lou")); // returns false
 })();
 
