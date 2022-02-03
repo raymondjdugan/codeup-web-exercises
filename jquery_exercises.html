@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Jquery Exercises</title>
+</head>
+<body>
+<header>
+    <h1>Hello, My Name Is Raymond Dugan</h1>
+    <p>I am a first class citizen that loves to code and have fun doing it. I love hanging around with friends and having a good time doing it</p>
+</header>
+<main>
+    <h2>My Hobbies Include</h2>
+    <ul id="list">
+        <li class="list-item">Coding</li>
+        <li class="list-item">Camping</li>
+        <li class="list-item">Fishing</li>
+        <li class="list-item">Hunting</li>
+        <li class="list-item">Video Games</li>
+    </ul>
+    <div id="div-content">
+        <img src="https://images.pexels.com/photos/4323815/pexels-photo-4323815.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="" height="450px">
+        <img src="https://images.pexels.com/photos/3925879/pexels-photo-3925879.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="" height="450">
+        <img src="https://images.pexels.com/photos/6669446/pexels-photo-6669446.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="" height="450px">
+        <img src="https://images.pexels.com/photos/2399840/pexels-photo-2399840.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="" height="450px">
+    </div>
+</main>
+<script type="text/javascript" src="js/jquery.js"></script>
+<script>
+    'use strict'
+    $().ready(function (){
+        // alert('DOM has finished loading')
+       alert($('#div-content').html())
+    })
+</script>
+</body>
+</html>
