@@ -6,12 +6,12 @@
 </head>
 <body>
 <header>
-    <h1>Hello, My Name Is Raymond Dugan</h1>
+    <h1 id="codeuo">Hello, My Name Is Raymond Dugan</h1>
     <p>I am a first class citizen that loves to code and have fun doing it. I love hanging around with friends and having a good time doing it</p>
 </header>
 <main>
-    <h2>My Hobbies Include</h2>
-    <ul id="list">
+    <h2 class="codeup">My Hobbies Include</h2>
+    <ul id="list" class="codeup">
         <li class="list-item">Coding</li>
         <li class="list-item">Camping</li>
         <li class="list-item">Fishing</li>
@@ -30,8 +30,7 @@
     'use strict'
     $().ready(function (){
         // alert('DOM has finished loading')
-       alert($('#div-content').html())
-        console.log()
+       $('.codeup').css('border', '1px solid red')
     })
 </script>
 </body>
