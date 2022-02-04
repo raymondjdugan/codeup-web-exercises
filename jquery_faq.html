@@ -38,6 +38,30 @@
     <dd class="">Most of the national parks in the United States are accessible by car, RV or bus. You can always enter a park and pay the individual fee at the park entrance. The fees vary between $20-$40 per vehicle and can be valid between 2 – 7 days. If you combine various national parks we recommend you buy the America the Beautiful Pass for $80.</dd>
 </dl>
 <button id="ddToggle" type="button">Toggle Definitions</button>
+<h3 id="national-parks-heading">Great Smoky Mountains National Park</h3>
+<ul id="national-parks">
+    <li>Great Smoky Mountains National Park was established in 1934.</li>
+    <li>The Appalachian Trail passes through Great Smoky Mountains National Park.</li>
+    <li>Carlsbad Caverns</li>
+    <li>Great Smoky Mountains National Park runs through Tennessee and North Carolina.</li>
+    <li>The Park was officially dedicated by President Franklin Delano Roosevelt in 1940.</li>
+</ul>
+<h3>Yellowstone National Park</h3>
+<ul id="state-parks-texas">
+    <li>Yellowstone encompasses 3,472 square miles (2,221,766 acres) which makes it larger than Rhode Island and Delaware combined.</li>
+    <li>There are more than 10,000 hydrothermal features in Yellowstone. The four types of thermal features are geysers, hot springs, mud pots, and fumaroles.</li>
+    <li>Yellowstone is home to more than 500 active geysers (more than half the world’s geysers).</li>
+    <li>Yellowstone Lake has 131.7 sq. miles of surface area and 141 miles of shoreline. It is the largest high elevation lake in North America.</li>
+</ul>
+<h3>Zion National Park</h3>
+<ul id=''>
+    <li>The word “Zion” comes from ancient Hebrew. The first Anglo-European settlers, Mormon pioneers, arrived in the area in the late 1800s. They named the area Zion, which is ancient Hebrew for sanctuary or refuge.</li>
+    <li>Zion National Park used to have a different name. Before Zion National Park was called Zion, it was a monument known as the Mukuntuweap National Monument and was first protected in 1909 by President William Howard Taft. After 10 years, the park expanded and was renamed Zion. It now covers 229 square miles of spectacular red rock landscape. The name change came as many believed that Spanish and Native American names would deter visitors who, if they could not pronounce the name of a place, might not visit.</li>
+    <li>It was home to an ancient civilisation. The Anasazi were the original occupants of Zion Canyon, a civilisation that thrived around 1,500 B.C.. You can find traces of their magnificent sandstone villages, network of roads and rock art throughout the park today.</li>
+    <li>The Zion Canyon. The Zion Canyon was carved over millions of years by the Virgin River and is approximately 2,000 feet deep. There are many hiking opportunities along its floor in the 20 to 30 foot wide area known as The Narrows.</li>
+</ul>
+<button id="hiLightList">Hi-Light Last List Items</button>
+<button id="bonus">Jquery Traversing Bonus</button>
 </body>
 <script src="js/jquery.js"></script>
 <script>
@@ -47,6 +71,20 @@
         })
         $('dt').click(function (){
             $(this).toggleClass('hiLight')
+        })
+        $('#hiLightList').click(function (){
+            $('ul').each(function (){
+                $(this).children().last().toggleClass('hiLight')
+            })
+        })
+        $('h3').click(function (){
+            $(this).next().css('font-weight', 'bold')
+        })
+        $('li').click(function (){
+            $(this).parent().children().first().css('color', 'blue')
+        })
+        $('#bonus').click(function (){
+            window.open('/jquery_bonus.html')
         })
     })
 </script>

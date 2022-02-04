@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Jquery Traversing</title>
+    <style>
+        body {
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            /*background-color: red;*/
+        }
+
+        .imgContainer {
+            display: flex;
+            width: 100%;
+            justify-content: space-around;
+        }
+
+        .portrait {
+            display: flex;
+            flex-direction: column;
+        }
+        img {
+            border: 16px inset white;
+        }
+        .button {
+            display: flex;
+            justify-content: center;
+            margin: 1em 0;
+        }
+        button {
+            width: 50%;
+        }
+    </style>
+</head>
+<body>
+<div class="imgContainer">
+    <div class="portrait" id="leftFrame">
+        <img src="https://images.pexels.com/photos/3925879/pexels-photo-3925879.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+             alt="Fishing Picture" height="450">
+        <div class="button">
+            <button id="leftFrameBtn">Swap</button>
+        </div>
+    </div>
+    <div class="portrait" id="centerFrame">
+        <img src="https://images.pexels.com/photos/6669446/pexels-photo-6669446.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+             alt="Bow Hunting Picture" height="450px">
+        <div class="button">
+            <button id="centerFrameBtn">Swap</button>
+        </div>
+    </div>
+    <div class="portrait" id="rightFrame">
+        <img src="https://images.pexels.com/photos/2399840/pexels-photo-2399840.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+             alt="Computer Picture" height="450px">
+        <div class="button">
+            <button id="rightFrameBtn">Swap</button>
+        </div>
+    </div>
+</div>
+<script src="js/jquery.js"></script>
+<script>
+    const leftImage = $('#leftFrame img').attr('src')
+    const centerImage = $('#centerFrame img').attr('src')
+    const rightImage = $('#rightFrame img').attr('src')
+
+    $('#leftFrameBtn').click(function (){
+        $('#centerFrame img').attr('src', leftImage)
+        $('#leftFrame img').attr('src', centerImage)
+
+    })
+    $('#centerFrame').click(function (){
+        const randNum = Math.floor(Math.random() * 2) + 1;
+        if (randNum === 1) {
+            $('#centerFrame img').attr('src', leftImage)
+            $('#leftFrame img').attr('src', centerImage)
+        } else if (randNum === 2){
+            $('#centerFrame img').attr('src', rightImage)
+            $('#rightFrame img').attr('src', centerImage)
+        }
+    })
+    $('#rightFrame').click(function (){
+        $('#rightFrame img').attr('src', centerImage)
+        $('#centerFrame img').attr('src', leftImage)
+        $('#leftFrame img').attr('src', rightImage)
+    })
+</script>
+</body>
+</html>
