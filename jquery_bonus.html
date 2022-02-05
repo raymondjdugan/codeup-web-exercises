@@ -4,6 +4,10 @@
     <meta charset="UTF-8">
     <title>Jquery Traversing</title>
     <style>
+        @font-face {
+            font-family: 'Wesley';
+            src: url("fonts/P.otf");
+        }
         body {
             width: 100vw;
             height: 100vh;
@@ -13,7 +17,11 @@
             align-items: center;
             /*background-color: red;*/
         }
-
+        h1 {
+            font-family: 'Wesley', "Comic Sans MS", sans-serif;
+            font-size: 100px;
+            color: olivedrab;
+        }
         .imgContainer {
             display: flex;
             width: 100%;
@@ -38,23 +46,24 @@
     </style>
 </head>
 <body>
+<h1>WESLEY IS KING</h1>
 <div class="imgContainer">
     <div class="portrait" id="leftFrame">
-        <img src="https://images.pexels.com/photos/3925879/pexels-photo-3925879.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+        <img src="img/fishing.jpeg"
              alt="Fishing Picture" height="450">
         <div class="button">
             <button id="leftFrameBtn">Swap</button>
         </div>
     </div>
     <div class="portrait" id="centerFrame">
-        <img src="https://images.pexels.com/photos/6669446/pexels-photo-6669446.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+        <img src="img/hunting.jpeg"
              alt="Bow Hunting Picture" height="450px">
         <div class="button">
             <button id="centerFrameBtn">Swap</button>
         </div>
     </div>
     <div class="portrait" id="rightFrame">
-        <img src="https://images.pexels.com/photos/2399840/pexels-photo-2399840.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+        <img src="img/computer.jpeg"
              alt="Computer Picture" height="450px">
         <div class="button">
             <button id="rightFrameBtn">Swap</button>
@@ -63,29 +72,49 @@
 </div>
 <script src="js/jquery.js"></script>
 <script>
-    const leftImage = $('#leftFrame img').attr('src')
-    const centerImage = $('#centerFrame img').attr('src')
-    const rightImage = $('#rightFrame img').attr('src')
-
+    const $imgDiv = $('.portrait')
+    const imgSrc = {
+        first: $imgDiv.first().children('img').attr('src'),
+        second: $imgDiv.next().children('img').first().attr('src'),
+        last: $imgDiv.last().children('img').attr('src')
+    }
     $('#leftFrameBtn').click(function (){
-        $('#centerFrame img').attr('src', leftImage)
-        $('#leftFrame img').attr('src', centerImage)
-
-    })
-    $('#centerFrame').click(function (){
-        const randNum = Math.floor(Math.random() * 2) + 1;
-        if (randNum === 1) {
-            $('#centerFrame img').attr('src', leftImage)
-            $('#leftFrame img').attr('src', centerImage)
-        } else if (randNum === 2){
-            $('#centerFrame img').attr('src', rightImage)
-            $('#rightFrame img').attr('src', centerImage)
+        if ( $imgDiv.first().children('img').attr('src') === 'img/fishing.jpeg') {
+            $imgDiv.first().children('img').attr('src', imgSrc.second);
+            $imgDiv.next().children('img').first().attr('src', imgSrc.first);
+        } else {
+            $imgDiv.first().children('img').attr('src', imgSrc.first);
+            $imgDiv.next().children('img').first().attr('src', imgSrc.second);
         }
     })
-    $('#rightFrame').click(function (){
-        $('#rightFrame img').attr('src', centerImage)
-        $('#centerFrame img').attr('src', leftImage)
-        $('#leftFrame img').attr('src', rightImage)
+    $('#centerFrameBtn').click(function (){
+        const randNum = Math.floor(Math.random() * 2) + 1;
+            if (randNum === 1) {
+                if ($imgDiv.first().children('img').attr('src') === 'img/hunting.jpeg') {
+                    $imgDiv.first().children('img').attr('src', imgSrc.first);
+                    $imgDiv.next().children('img').first().attr('src', imgSrc.second);
+                } else {
+                    $imgDiv.first().children('img').attr('src', imgSrc.second);
+                    $imgDiv.next().children('img').first().attr('src', imgSrc.first);
+                }
+            } else if (randNum === 2) {
+                if ($imgDiv.last().children('img').attr('src') === 'img/computer.jpeg') {
+                    $imgDiv.last().children('img').attr('src', imgSrc.second);
+                    $imgDiv.next().children('img').first().attr('src', imgSrc.last);
+                } else {
+                    $imgDiv.last().children('img').attr('src', imgSrc.last);
+                    $imgDiv.next().children('img').first().attr('src', imgSrc.second);
+                }
+            }
+    })
+    $('#rightFrameBtn').click(function (){
+        if ($imgDiv.last().children('img').attr('src') === 'img/computer.jpeg') {
+            $imgDiv.last().children('img').attr('src', imgSrc.second);
+            $imgDiv.next().children('img').first().attr('src', imgSrc.last);
+        } else {
+            $imgDiv.last().children('img').attr('src', imgSrc.last);
+            $imgDiv.next().children('img').first().attr('src', imgSrc.second);
+        }
     })
 </script>
 </body>

@@ -167,23 +167,38 @@
     // }
     // console.log(sumOfSquares(2, 3));
 
-    function whichStringIsLonger(string1, string2){
-        if (typeof string1 === 'string' && typeof string2 === "string"){
-            if (string1.length === string2.length) {
-                return 'neither'
-            } else {
-                return string1.length > string2.length ? 'first' : 'second'
-            }
+    // function whichStringIsLonger(string1, string2){
+    //     if (typeof string1 === 'string' && typeof string2 === "string"){
+    //         if (string1.length === string2.length) {
+    //             return 'neither'
+    //         } else {
+    //             return string1.length > string2.length ? 'first' : 'second'
+    //         }
+    //
+    //     } else {
+    //         return false
+    //     }
+    // }
+    //
+    // console.log(whichStringIsLonger("bobby", "lou")); // returns first
+    // console.log(whichStringIsLonger("bob", "louise")); // returns second
+    // console.log(whichStringIsLonger("bob", "lou")); // returns neither
+    // console.log(whichStringIsLonger("bobby", 2)); // returns false
+    // console.log(whichStringIsLonger(1, "lou")); // returns false
 
+    // Write a function called convertLowHighToObject that takes in a string  that represents the low and high temperature in this format '35, 42' (assuming low will always be the left value and high the right) and returns an object with the properties 'low' and 'high' with the values of those respective properties set to the corresponding values in the input string.
+    //     NOTE: the values in the object should be of the number type
+    // Example input: '35, 42'
+    // Example return: {low: 35, high: 42}
+
+    const convertLowHighToObject = function (low, high){
+        if (parseFloat(low) && parseFloat(high)){
+            return `Low Temperature: ${low}\nHigh Temperature: ${high}`
         } else {
-            return false
+            return `Please enter numeric values for evaluation`
         }
     }
-
-    console.log(whichStringIsLonger("bobby", "lou")); // returns first
-    console.log(whichStringIsLonger("bob", "louise")); // returns second
-    console.log(whichStringIsLonger("bob", "lou")); // returns neither
-    console.log(whichStringIsLonger("bobby", 2)); // returns false
-    console.log(whichStringIsLonger(1, "lou")); // returns false
+    console.log(convertLowHighToObject(35, 42))
+    console.log(convertLowHighToObject('hi'))
 })();
 

@@ -3,7 +3,7 @@
 <head>
     <title>Konami Code</title>
     <style>
-        iframe{
+        iframe {
             position: fixed;
             top: 0;
             left: 0;
@@ -23,7 +23,6 @@
         const code = [38,38,40,40,37,39,37,39,66,65,13];
         let currentCodeIndex = 0;
         $(document).keyup(function(event){
-            console.log(event.keyCode);
             if (event.keyCode === code[currentCodeIndex]) {
                 currentCodeIndex++
 
@@ -36,8 +35,11 @@
             }
         });
         function activateCheat(){
-            alert('You have earned thirty lives')
+            alert(`Let's go back to 1987`)
             $('body').html(`<iframe src="https://www.youtube.com/embed/EuGgc5eSwQs?autoplay=1&controls=0&start=18" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`)
+            $('body').html(`<audio controls autoPlay>
+                <source src="horse.ogg" type="audio/ogg">
+            </audio>`)
         }
     })
 
