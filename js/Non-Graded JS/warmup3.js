@@ -191,14 +191,31 @@
     // Example input: '35, 42'
     // Example return: {low: 35, high: 42}
 
-    const convertLowHighToObject = function (low, high){
-        if (parseFloat(low) && parseFloat(high)){
-            return `Low Temperature: ${low}\nHigh Temperature: ${high}`
-        } else {
-            return `Please enter numeric values for evaluation`
-        }
+    // const convertLowHighToObject = function (low, high){
+    //     if (parseFloat(low) && parseFloat(high)){
+    //         return `Low Temperature: ${low}\nHigh Temperature: ${high}`
+    //     } else {
+    //         return `Please enter numeric values for evaluation`
+    //     }
+    // }
+    // console.log(convertLowHighToObject(35, 42))
+    // console.log(convertLowHighToObject('hi'))
+
+    function camel(string){
+        let finalWords = [];
+        let stringArray = string.split('_');
+        console.log(stringArray)
+        stringArray.forEach(function (word, i){
+            if (i === 0) {
+                finalWords.push(word)
+            }
+            if(i >= 1) {
+                finalWords.push(word.charAt(0).toUpperCase() + word.slice(1));
+            }
+        })
+        return finalWords.join('')
     }
-    console.log(convertLowHighToObject(35, 42))
-    console.log(convertLowHighToObject('hi'))
+
+    console.log(camel('The-stealth-warrior'));
 })();
 
