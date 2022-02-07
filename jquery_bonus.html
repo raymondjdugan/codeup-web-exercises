@@ -92,11 +92,12 @@
             if (randNum === 1) {
                 if ($imgDiv.first().children('img').attr('src') === 'img/hunting.jpeg') {
                     $imgDiv.first().children('img').attr('src', imgSrc.first);
-                    $imgDiv.next().children('img').first().attr('src', imgSrc.second);
-                } else {
+                    $imgDiv.next().children('img').first().attr('src', imgSrc.first);
+                } else  {
                     $imgDiv.first().children('img').attr('src', imgSrc.second);
                     $imgDiv.next().children('img').first().attr('src', imgSrc.first);
                 }
+
             } else if (randNum === 2) {
                 if ($imgDiv.last().children('img').attr('src') === 'img/computer.jpeg') {
                     $imgDiv.last().children('img').attr('src', imgSrc.second);
