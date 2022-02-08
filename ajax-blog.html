@@ -8,6 +8,12 @@
         *{
             font-family: "Comic Sans MS", sans-serif;
         }
+        a {
+            color: white;
+        }
+        a:hover{
+            color: chartreuse;
+        }
     </style>
 </head>
 <body class="bg-info">
@@ -20,13 +26,14 @@
         function catToUpper(blogCat){
             let categoriesFixed = [];
             blogCat.forEach(function (cat) {
-                categoriesFixed.push(cat.charAt(0).toUpperCase() + cat.slice(1))
+                categoriesFixed.push(`<a href="#">#${cat}</a>`)
+                // categoriesFixed.push(cat.charAt(0).toUpperCase() + cat.slice(1))
             })
-            return categoriesFixed.join(', ')
+            return categoriesFixed.join(' ')
         }
 
         function createHTML(blog) {
-            return `<div class="card bg-transparent mt-3 mx-2 w-75">
+            return `<div class="card bg-transparent mt-3 w-75">
                                    <div class="card-header bg-dark text-white">${blog.title}</div>
                                    <div class="card-body bg-light">${blog.content}</div>
                                    <div class="card-footer bg-secondary d-flex justify-content-between text-white">
