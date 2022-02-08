@@ -22,5 +22,11 @@
 		"quantity": 25,
 		"categories": ["tool"],
 		"price": 10
+	},
+	{
+		"title": "Wesley",
+		"quantity": 1,
+		"categories": ["tool", "powered"],
+		"price": "less"
 	}
 ]

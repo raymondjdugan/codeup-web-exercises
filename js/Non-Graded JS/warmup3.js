@@ -200,22 +200,5 @@
     // }
     // console.log(convertLowHighToObject(35, 42))
     // console.log(convertLowHighToObject('hi'))
-
-    function camel(string){
-        let finalWords = [];
-        let stringArray = string.split('_');
-        console.log(stringArray)
-        stringArray.forEach(function (word, i){
-            if (i === 0) {
-                finalWords.push(word)
-            }
-            if(i >= 1) {
-                finalWords.push(word.charAt(0).toUpperCase() + word.slice(1));
-            }
-        })
-        return finalWords.join('')
-    }
-
-    console.log(camel('The-stealth-warrior'));
 })();
 
