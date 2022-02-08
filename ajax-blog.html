@@ -16,6 +16,7 @@
 <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
 <script>
     $().ready(function (){
+
         function catToUpper(blogCat){
             let categoriesFixed = [];
             blogCat.forEach(function (cat) {
@@ -23,6 +24,7 @@
             })
             return categoriesFixed.join(', ')
         }
+
         function createHTML(blog) {
             return `<div class="card bg-transparent mt-3 mx-2 w-75">
                                    <div class="card-header bg-dark text-white">${blog.title}</div>
@@ -32,6 +34,7 @@
                                     <div>${blog.date}</div>
                                    </div>`
         }
+
         $.ajax('data/blog.json').done(function (blogs){
            blogs.forEach(function (blog){
                $('#posts').append(createHTML(blog))
