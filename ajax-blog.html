@@ -16,19 +16,25 @@
 <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
 <script>
     $().ready(function (){
-        $.ajax('data/blog.json').done(function (blogs){
-           blogs.forEach(function (blog){
-               let categoriesFixed = [];
-               blog.categories.forEach(function (cat) {
-                   categoriesFixed.push(cat.charAt(0).toUpperCase() + cat.slice(1))
-               })
-               $('#posts').append(`<div class="card bg-transparent mt-3 mx-2 w-50">
+        function catToUpper(blogCat){
+            let categoriesFixed = [];
+            blogCat.forEach(function (cat) {
+                categoriesFixed.push(cat.charAt(0).toUpperCase() + cat.slice(1))
+            })
+            return categoriesFixed.join(', ')
+        }
+        function createHTML(blog) {
+            return `<div class="card bg-transparent mt-3 mx-2 w-75">
                                    <div class="card-header bg-success ">${blog.title}</div>
                                    <div class="card-body bg-primary">${blog.content}</div>
                                    <div class="card-footer bg-success d-flex justify-content-between">
-                                    <div>${categoriesFixed.join(', ')}</div>
+                                    <div>${catToUpper(blog.categories)}</div>
                                     <div>${blog.date}</div>
-                                   </div>`)
+                                   </div>`
+        }
+        $.ajax('data/blog.json').done(function (blogs){
+           blogs.forEach(function (blog){
+               $('#posts').append(createHTML(blog))
            })
         })
     })
