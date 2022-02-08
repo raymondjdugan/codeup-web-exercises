@@ -25,9 +25,9 @@
         }
         function createHTML(blog) {
             return `<div class="card bg-transparent mt-3 mx-2 w-75">
-                                   <div class="card-header bg-success ">${blog.title}</div>
-                                   <div class="card-body bg-primary">${blog.content}</div>
-                                   <div class="card-footer bg-success d-flex justify-content-between">
+                                   <div class="card-header bg-dark text-white">${blog.title}</div>
+                                   <div class="card-body bg-light">${blog.content}</div>
+                                   <div class="card-footer bg-secondary d-flex justify-content-between text-white">
                                     <div>${catToUpper(blog.categories)}</div>
                                     <div>${blog.date}</div>
                                    </div>`
