@@ -128,6 +128,10 @@ for (const input of inputs) {
     };
 }
 
+$('#hide').click(function (){
+    $('svg').toggleClass('hidden')
+})
+
 map.on('load', () => {
 // Insert the layer beneath any symbol layer.
     const layers = map.getStyle().layers;
