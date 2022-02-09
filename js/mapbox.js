@@ -8,8 +8,7 @@ locArray[0] = {
         imgSrc: 'img/bbq.jpeg',
         alt: 'BBQ Picture',
         heading: 'Best BBQ In Texas',
-        para: 'Menu',
-        link: ["https://centralbbq.com/our-menu/", 'Central Texas BBQ Menu']
+        link: "https://centralbbq.com/our-menu/"
     }
 };
 locArray[1] = {
@@ -17,11 +16,10 @@ locArray[1] = {
     location: [-101.9382339, 35.1901106],
     address: '2101 S Soncy Rd, Amarillo, TX 79124',
     popupHTML: {
-        imgSrc: 'img/bbq.jpeg',
+        imgSrc: 'img/marg.jpg',
         alt: 'BBQ Picture',
         heading: 'Best BBQ In Texas',
-        para: 'Menu',
-        link: ["https://www.theplazarestaurant.com/menu/", 'The Plaza Menu']
+        link: "https://www.theplazarestaurant.com/menu/"
     }
 };
 locArray[2] = {
@@ -32,16 +30,17 @@ locArray[2] = {
         imgSrc: 'img/casa.jpg',
         alt: 'Casa Bonita Image',
         heading: '🔥Flaming Waterfalls🔥',
-        para: 'Menu',
-        link: ["https://www.casabonitadenver.com/", 'Casa Bonita']
+        link: "https://www.casabonitadenver.com/"
     }
 };
 
-
+// Token Declaration
 mapboxgl.accessToken = RAYMOND_DUGAN_KEY;
 
+// Creating the map
 const map = new mapboxgl.Map(mapOptions());
 
+// Function to create map options
 function mapOptions() {
     return {
         container: 'map', // container ID
@@ -51,27 +50,33 @@ function mapOptions() {
     };
 }
 
+// Function to create geocoder and create the on function to set marker on the geocoder input
 function geoCoder(){
+    // Create geocoder
     const geocoder = new MapboxGeocoder({
         accessToken: mapboxgl.accessToken, // Set the access token
         mapboxgl: mapboxgl, // Set the mapbox-gl instance
     });
 
+    // Add geocoder to map
     geocoder.addTo(map)
 
+    // Function to get the coordinates and name of the input
+    // Calls the create marker function
     geocoder.on('result', function(event){
-        console.log(event.result)
         createMarker(event.result.center, event.result.place_name)
     })
 }
 geoCoder()
 
-
+// Function to add zoom
 function addZoom(mapObj){
     return mapObj.addControl(new mapboxgl.NavigationControl());
 }
 addZoom(map)
 
+
+//Function to create the marker and call the create popup function
 function createMarker(location, popInfo){
     return new mapboxgl.Marker()
         .setLngLat(location)
@@ -79,26 +84,28 @@ function createMarker(location, popInfo){
         .setPopup(createPopup(popInfo));
 }
 
+// Function to create the popup
 function createPopup(info){
     return new mapboxgl.Popup()
         .setHTML(info);
 }
 
-function createMarkerAndPopup(location, info) {
-    var popup = new mapboxgl.Popup()
-        .setHTML(info);
-    return new mapboxgl.Marker()
-        .setLngLat(location)
-        .addTo(map)
-        .setPopup(popup);
+
+// Function to create the popup html string for the hard-coded data
+function createHTML(htmlInfo){
+    return `<div class="popup">
+            <img src="${htmlInfo.popupHTML.imgSrc}" alt="${htmlInfo.popupHTML.alt}">
+            <h6>${htmlInfo.popupHTML.heading}</h6>
+            <p>Menu: <a href="${htmlInfo.popupHTML.link}">${htmlInfo.name}</a></p>
+            </div>`
 }
 
+// Function to get the location of the hard coded data and call the create marker function
 function getLocation(info, token) {
     geocode(info.address, token).then(function (coordinates) {
-        createMarkerAndPopup(coordinates, createHTML(info))
+        createMarker(coordinates, createHTML(info))
     });
 }
-
 
 // This was looping through the hard coded data and setting marker for each.
 function setRest(restData) {
@@ -109,7 +116,7 @@ function setRest(restData) {
 setRest(locArray)
 
 
-// Added click functionallity but did not like it for this exercise
+// Added click functionality but did not like it for this exercise
 // map.on('click', function (e) {
 //     createMarker(e.lngLat)
 // })
