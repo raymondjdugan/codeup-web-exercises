@@ -7,15 +7,15 @@ body{
     width: 100%;
     height: 600px;
 }
-.popup {
+
+.mapboxgl-popup-content{
     color: black;
 }
+.mapboxgl-popup-close-button {
+    outline: none;
+}
 
-.popup a {
-    text-decoration: navajowhite;
+.hidden {
+    visibility: hidden;
 }
-img{
-    margin-top: 8px;
-    width: 100%;
-    height: 75px;
-}
+

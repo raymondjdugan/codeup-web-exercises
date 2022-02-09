@@ -16,41 +16,72 @@ locArray[1] = {
     name: 'The Plaza',
     location: [-101.9382339, 35.1901106],
     address: '2101 S Soncy Rd, Amarillo, TX 79124',
-    popupHTML: `<h6>Best Ranch Waters In The State</h6>`
+    popupHTML: {
+        imgSrc: 'img/bbq.jpeg',
+        alt: 'BBQ Picture',
+        heading: 'Best BBQ In Texas',
+        para: 'Menu',
+        link: ["https://www.theplazarestaurant.com/menu/", 'The Plaza Menu']
+    }
 };
 locArray[2] = {
     name: 'Casa Bonita',
     location: [-105.0710252, 39.7419409],
     address: '6715 W Colfax Ave, Lakewood, CO 80214',
-    popupHTML: `<h6>Flaming Waterfall. Must I Say Anything More?</h6>`
+    popupHTML: {
+        imgSrc: 'img/casa.jpg',
+        alt: 'Casa Bonita Image',
+        heading: '🔥Flaming Waterfalls🔥',
+        para: 'Menu',
+        link: ["https://www.casabonitadenver.com/", 'Casa Bonita']
+    }
 };
 
 
 mapboxgl.accessToken = RAYMOND_DUGAN_KEY;
 
-const map = showMap(mapOptions());
-
-function showMap(options) {
-    return new mapboxgl.Map(options);
-
-}
+const map = new mapboxgl.Map(mapOptions());
 
 function mapOptions() {
     return {
         container: 'map', // container ID
         style: 'mapbox://styles/mapbox/satellite-streets-v11', // style URL
-        center: [-95.28793, 29.563305], // starting position [lng, lat]
-        zoom: 19 // starting zoom
+        center: [-101.9382339, 35.1901106], // starting position [lng, lat]
+        zoom: 10 // starting zoom
     };
 }
 
-function createHTML(restInfo) {
-    return `<div class="popup">
-            <img src="${restInfo.popupHTML.imgSrc}" alt="${restInfo.popupHTML.alt}">
-            <h6>${restInfo.popupHTML.heading}</h6>
-            <p>${restInfo.popupHTML.para}: 
-            <a href="${restInfo.popupHTML.link[0]}">${restInfo.popupHTML.link[1]}</a></p>
-            </div>`
+function geoCoder(){
+    const geocoder = new MapboxGeocoder({
+        accessToken: mapboxgl.accessToken, // Set the access token
+        mapboxgl: mapboxgl, // Set the mapbox-gl instance
+    });
+
+    geocoder.addTo(map)
+
+    geocoder.on('result', function(event){
+        console.log(event.result)
+        createMarker(event.result.center, event.result.place_name)
+    })
+}
+geoCoder()
+
+
+function addZoom(mapObj){
+    return mapObj.addControl(new mapboxgl.NavigationControl());
+}
+addZoom(map)
+
+function createMarker(location, popInfo){
+    return new mapboxgl.Marker()
+        .setLngLat(location)
+        .addTo(map)
+        .setPopup(createPopup(popInfo));
+}
+
+function createPopup(info){
+    return new mapboxgl.Popup()
+        .setHTML(info);
 }
 
 function createMarkerAndPopup(location, info) {
@@ -68,20 +99,17 @@ function getLocation(info, token) {
     });
 }
 
+
+// This was looping through the hard coded data and setting marker for each.
 function setRest(restData) {
     restData.forEach(function (restaurant) {
         getLocation(restaurant, RAYMOND_DUGAN_KEY)
     });
 }
-
 setRest(locArray)
 
-map.addControl(
-    new MapboxGeocoder({
-        accessToken: mapboxgl.accessToken,
-        mapboxgl: mapboxgl
-    })
-);
+
+// Added click functionallity but did not like it for this exercise
 // map.on('click', function (e) {
 //     createMarker(e.lngLat)
 // })
