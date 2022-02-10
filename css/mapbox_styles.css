@@ -4,7 +4,7 @@ body{
     color: #F4F3EE;
 }
 #map {
-    width: 100%;
+    width: 75%;
     height: 600px;
 }
 .popup {

@@ -24,7 +24,6 @@ function geocode(search, token) {
             return data.features[0].center;
        });
 }
-geocode('813 Richmond Ave Houston Tx 77006', RAYMOND_DUGAN_KEY).log
 
 /***
  * reverseGeocode is a method to search for a physical address based on inputted coordinates
