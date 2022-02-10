@@ -115,7 +115,7 @@
     function getWeatherData(lon, lat){
         console.log(lon, lat)
         $.get("http://api.openweathermap.org/data/2.5/onecall", {
-            APPID: "96f48d0fc37d79c90bbc4bdad8111522",
+            APPID: OPEN_WEATHER_KEY,
             lat:    lat,
             lon:    lon,
             units: "imperial"
