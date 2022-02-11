@@ -1,4 +1,3 @@
-$().ready(function (){
     mapboxgl.accessToken = RAYMOND_DUGAN_KEY;
     mapboxgl.setRTLTextPlugin(
         'https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-rtl-text/v0.2.3/mapbox-gl-rtl-text.js'
@@ -11,9 +10,6 @@ $().ready(function (){
         pitch: 60, // pitch in degrees
     });
 
-    mapboxgl.setRTLTextPlugin(
-        'https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-rtl-text/v0.2.3/mapbox-gl-rtl-text.js'
-    );
 
     map.on('load', function(){
         map.addLayer({
@@ -54,4 +50,3 @@ $().ready(function (){
         })
     );
 
-})

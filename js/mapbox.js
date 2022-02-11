@@ -129,7 +129,7 @@ for (const input of inputs) {
 }
 
 $('#hide').click(function (){
-    $('svg').toggleClass('hidden')
+    $('.mapboxgl-marker').remove()
 })
 
 map.on('load', () => {
@@ -181,9 +181,9 @@ map.on('load', () => {
     );
 });
 // Added click functionality but did not like it for this exercise
-// map.on('click', function (e) {
-//     createMarker(e.lngLat)
-// })
+map.on('click', function (e) {
+    createMarker(e.lngLat)
+})
 
 // function reverseLookUpSet(coords, token, map) {
 //     reverseGeocode(coords, token).then(function (coordinates) {
