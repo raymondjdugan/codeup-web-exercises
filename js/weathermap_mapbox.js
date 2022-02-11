@@ -10,7 +10,6 @@
         pitch: 60, // pitch in degrees
     });
 
-
     map.on('load', function(){
         map.addLayer({
             "id": "simple-tiles",
@@ -43,10 +42,27 @@
         ]);
     });
 
-    map.addControl(
-        new MapboxGeocoder({
+    const geocoder = new MapboxGeocoder({
             accessToken: mapboxgl.accessToken,
             mapboxgl: mapboxgl
         })
-    );
+    const geocoder2 = new MapboxGeocoder({
+        accessToken: mapboxgl.accessToken,
+        mapboxgl: mapboxgl
+    })
+    geocoder2.addTo(map)
+    document.getElementById('geocoder').appendChild(geocoder.onAdd(map));
+    $('.mapboxgl-ctrl-geocoder--input').attr('placeholder', 'Search Your City')
 
+    geocoder.on('result', function (e){
+        city = e.result.text
+        geocode(city, RAYMOND_DUGAN_KEY)
+    })
+    geocoder2.on('result', function (e){
+        city = e.result.text
+        geocode(city, RAYMOND_DUGAN_KEY)
+    })
+
+    map.on('click', function (e){
+        reverseGeocode(e.lngLat, RAYMOND_DUGAN_KEY)
+    })

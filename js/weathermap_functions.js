@@ -16,9 +16,9 @@ function createHTML(timeZ, temp, humid, deg, curr_high, curr_low, city) {
              </div>`
 }
 
-function fiveDayForcastHTML(day_high, day_low, icon, desc, hum, wind) {
-    return `<div class="card d-none d-md-flex">
-                        <div class="card-header m-0 p-0 text-center">Date</div>
+function fiveDayForcastHTML(day_high, day_low, icon, desc, hum, wind, backgroundClass, utc) {
+    return `<div class="card d-none d-md-flex ${backgroundClass}">
+                        <div class="card-header m-0 p-0 text-center">${setDate(utc)}</div>
                             <div class="card-body py-0 px-2">
                                 <div class="d-flex justify-content-between align-items-center">
                                     <div class="d-flex flex-column">
@@ -92,12 +92,11 @@ function findWindDirection(deg) {
 }
 
 function setTime(timeZ) {
-    const time =  new Intl.DateTimeFormat(navigator.location, {
+    return new Intl.DateTimeFormat(navigator.location, {
         timeZone: timeZ,
         hour: 'numeric',
         minute: 'numeric'
-    }).format(new Date())
-    return time;
+    }).format(new Date());
 }
 
 function setCapitaization(str) {
@@ -118,8 +117,8 @@ function currentBackground(dt){
 }
 
 function setDate(utc){
-    let date = new Date(utc * 1000).toLocaleDateString(navigator.language)
-    return date
+    console.log(new Date(utc * 1000).toLocaleDateString(navigator.language))
+    return new Date(utc * 1000).toLocaleDateString(navigator.language)
 }
 
 function setDailyBackground(icon){
@@ -134,6 +133,19 @@ function setDailyBackground(icon){
     }
 }
 
-$("#btn").click(function () {
-    geocode($("#in").val(), RAYMOND_DUGAN_KEY)
-})
+//Function to create the marker and call the create popup function
+function createMarker(location, popInfo){
+    $('.mapboxgl-marker').remove()
+    map.setCenter(location)
+    return new mapboxgl.Marker()
+        .setLngLat(location)
+        .addTo(map)
+        .setPopup(createPopup(popInfo));
+}
+
+// Function to create the popup
+function createPopup(info){
+    return new mapboxgl.Popup()
+        .setHTML(info);
+}
+

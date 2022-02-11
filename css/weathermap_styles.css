@@ -23,13 +23,19 @@ body {
     /*background-color: #2E7FA1;*/
 }
 
+#map {
+    margin-top: 4em;
+    width: 100%;
+    height: 300px;
+    border: 3px solid #28688C;
+    border-radius: 10px;
+}
 .clear-day {
     background: rgb(201,246,255);
     background: linear-gradient(0deg, rgba(201,246,255,1) 0%, rgba(151,235,244,1) 25%, rgba(122,229,245,1) 50%, rgba(101,221,239,1) 75%, rgba(53,214,237,1) 100%);
     background-size: cover;
     background-repeat: no-repeat;
 }
-
 .nightTime {
     background: rgb(1,66,109);
     background: linear-gradient(0deg, rgba(1,66,109,1) 0%, rgba(0,58,99,1) 20%, rgba(1,49,85,1) 40%, rgba(0,39,70,1) 60%, rgba(0,29,55,1) 80%, rgba(1,22,46,1) 100%);
@@ -61,14 +67,33 @@ body {
     body {
         background-color: #ECE5F0;
     }
-
+    .main-info {
+        flex-direction: row;
+        align-items: center;
+        margin-top: 1em;
+    }
+    #city_time {
+        align-self: flex-start;
+    }
+    #curr-temp {
+        flex-grow: 1;
+    }
     #weather-cards {
         display: flex;
         flex-wrap: wrap;
     }
+    .curr-options{
+        align-items: flex-start;
+    }
 
     .card {
-        width: 50%;
+        width: 100%;
+    }
+    .carousel-item {
+        width: 100%;
+    }
+    .carousel-inner {
+        width: 75%;
     }
 }
 

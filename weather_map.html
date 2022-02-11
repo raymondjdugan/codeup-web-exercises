@@ -17,12 +17,9 @@
 <div class="container-fluid">
 <div id="main-div">
     <div id="top-info"></div>
-    <div id="weather-cards"></div>
+    <div id="weather-cards" class="d-none d-lg-flex"></div>
 </div>
-<div id="map-div">
-    <div id="map"></div>
-</div>
-<div id="carousel" class="carousel slide d-md-none" data-ride="carousel">
+<div id="carousel" class="carousel slide d-lg-none m-auto d-flex justify-content-center" data-ride="carousel">
     <ol class="carousel-indicators">
         <li data-target="#carousel" data-slide-to="0" class="active"></li>
         <li data-target="#carousel" data-slide-to="1"></li>
@@ -34,13 +31,11 @@
     <div class="carousel-inner" id="carousel-append">
     </div>
 </div>
-<div class="d-flex justify-content-center " id="input-btn">
-<div class="input-group mb-3 mt-3 w-75 ">
-    <div class="input-group-prepend">
-        <button class="btn btn-outline-secondary" type="button" id="button-addon1">Button</button>
+    <div id="map-div" class="d-none d-md-block">
+        <div id="map"></div>
     </div>
-    <input type="text" class="form-control" placeholder="Search Your City" aria-label="Example text with button addon" aria-describedby="button-addon1">
-</div>
+<div class="d-flex justify-content-center d-md-none" id="input-btn">
+    <div id="geocoder" class="geocoder mt-3"></div>
 </div>
 </div>
 <!--Mapbox Geocoder Plugin API CDN-->
