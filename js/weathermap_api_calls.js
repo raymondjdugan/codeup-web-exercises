@@ -10,6 +10,8 @@ function geocode(search, token) {
         }).then(function (data) {
             let [lon, lat] = data.features[0].center;
             getWeatherData(lon, lat)
+            createMarker(data.features[0].center, data.features[0].place_name)
+
         });
 }
 geocode(city, RAYMOND_DUGAN_KEY)
@@ -20,24 +22,41 @@ function getWeatherData(lon, lat) {
         lat: lat,
         lon: lon,
         units: "imperial"
-    }).then(function (data) {
+    }).then(function (weatherData) {
+        const CURRENT_UTC_TIME = weatherData.current.dt
+        const CURRENT_TEMP = weatherData.current.temp
+        const CURRENT_HUMIDITY = weatherData.current.humidity
+        const CURRENT_WIND_DIRECTION = findWindDirection(weatherData.current.wind_deg)
+        const CURRENT_MAX_TEMP = Math.round(weatherData.daily[0].temp.max)
+        const CURRENT_MIN_TEMP = Math.round(weatherData.daily[0].temp.min)
 
-        $('#top-info').html(createHTML(data.timezone, data.current.temp, data.current.humidity, data.current.wind_deg, Math.round(data.daily[0].temp.max), Math.round(data.daily[0].temp.min), city))
-        $('#weather-cards').html("")
-        $('#carousel-append').html('')
+        $('#weather-cards').html(" ")
+        $('body').addClass(currentBackground(CURRENT_UTC_TIME))
 
-        data.daily.forEach(function (day, i) {
+        $('#top-info').html(createHTML(CURRENT_UTC_TIME, CURRENT_TEMP, CURRENT_HUMIDITY, CURRENT_WIND_DIRECTION, CURRENT_MAX_TEMP, CURRENT_MIN_TEMP, city))
+
+        $('#carousel-append').html(' ')
+        weatherData.daily.forEach(function (day, i) {
+            const DAILY_MAX_TEMP = day.temp.max
+            const DAILY_MIN_TEMP = day.temp.min
+            const DAILY_WEATHER_ICON = day.weather[0].icon
+            const DAILY_WEATHER_DESCRIPTION = day.weather[0].description
+            const DAILY_HUMIDITY = day.humidity
+            const DAILY_WIND_DIRECTION = day.wind_deg
+            const DAILY_BACKGROUND = setDailyBackground(day.weather[0].icon)
+            const DAILY_TIME = day.dt
+
             if (i > 0 && i < 7) {
-                $('#weather-cards').append(fiveDayForcastHTML(day.temp.max, day.temp.min, day.weather[0].icon, day.weather[0].description, day.humidity, day.wind_deg, setDailyBackground(day.weather[0].icon), day.dt))
+                $('#weather-cards').append(fiveDayForcastHTML(DAILY_MAX_TEMP, DAILY_MIN_TEMP,DAILY_WEATHER_ICON, DAILY_WEATHER_DESCRIPTION, DAILY_HUMIDITY, DAILY_WIND_DIRECTION, DAILY_BACKGROUND, day.dt))
 
             if (i === 1) {
-                    $('#carousel-append').append(createCarousel(day.temp.max, day.temp.min, day.weather[0].icon, day.weather[0].description, day.humidity, day.wind_deg, 'carousel-item active', setDailyBackground(day.weather[0].icon), day.dt))
+                    $('#carousel-append').append(createCarousel(DAILY_MAX_TEMP, DAILY_MIN_TEMP, DAILY_WEATHER_ICON, DAILY_WEATHER_DESCRIPTION, DAILY_HUMIDITY, DAILY_WIND_DIRECTION, 'carousel-item active', DAILY_BACKGROUND, DAILY_TIME))
             } else if (i > 1 && i <= 7) {
-                    $('#carousel-append').append(createCarousel(day.temp.max, day.temp.min, day.weather[0].icon, day.weather[0].description, day.humidity, day.wind_deg, 'carousel-item', setDailyBackground(day.weather[0].icon), day.dt))
+                    $('#carousel-append').append(createCarousel(DAILY_MAX_TEMP, DAILY_MIN_TEMP, DAILY_WEATHER_ICON, DAILY_WEATHER_DESCRIPTION, DAILY_HUMIDITY, DAILY_WIND_DIRECTION, 'carousel-item', DAILY_BACKGROUND, DAILY_TIME))
                 }
             }
         })
-        $('body').addClass(currentBackground(data.current.dt))
+
     })
 }
 function reverseGeocode(coordinates, token) {

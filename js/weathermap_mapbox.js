@@ -6,7 +6,7 @@
         container: 'map',
         style: 'mapbox://styles/mapbox/streets-v11',
         zoom: 10,
-        center: [-98.4916, 29.4252],
+        center: [-101.8313, 35.2220],
         pitch: 60, // pitch in degrees
     });
 
@@ -46,19 +46,11 @@
             accessToken: mapboxgl.accessToken,
             mapboxgl: mapboxgl
         })
-    const geocoder2 = new MapboxGeocoder({
-        accessToken: mapboxgl.accessToken,
-        mapboxgl: mapboxgl
-    })
-    geocoder2.addTo(map)
-    document.getElementById('geocoder').appendChild(geocoder.onAdd(map));
+
+    $('#geocoder').append(geocoder.onAdd(map));
     $('.mapboxgl-ctrl-geocoder--input').attr('placeholder', 'Search Your City')
 
     geocoder.on('result', function (e){
-        city = e.result.text
-        geocode(city, RAYMOND_DUGAN_KEY)
-    })
-    geocoder2.on('result', function (e){
         city = e.result.text
         geocode(city, RAYMOND_DUGAN_KEY)
     })
