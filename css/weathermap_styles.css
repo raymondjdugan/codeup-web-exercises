@@ -236,6 +236,18 @@ body {
 }
 
 @media (min-width: 1440px) {
+    #current-day-info .card .card-body div {
+        font-size: 30px;
+    }
+    #curr_temps {
+        margin: 1em 0;
+    }
+    #weather-cards {
+        width: 100%;
+    }
+    #weather-cards .card .card-body {
+        font-size: 18px;
+    }
     #curr-temp h5 {
         font-size: 40px;
     }

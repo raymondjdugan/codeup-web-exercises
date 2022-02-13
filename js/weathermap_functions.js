@@ -51,7 +51,7 @@ function fiveDayForcastHTML(day_high, day_low, icon, desc, hum, windDir, backgro
     return `
         <div class="card d-none d-md-flex ${backgroundClass}">
             <div class="card-header m-0 p-0 text-center">${setDate(utc)}</div>
-            <div class="card-body py-0 px-2">
+            <div class="card-body py-0 px-2 p-xl-4">
                 <div class="d-flex justify-content-between align-items-center">
                     <div class="d-flex flex-column">
                         <div>High: ${Math.round(day_high)}°F</div>
@@ -180,10 +180,19 @@ function getRandomPercentage(max, min){
 function createMarker(location, popInfo) {
     $('.mapboxgl-marker').remove()
     map.setCenter(location)
+    setTimeout(scrollToTOp, 9000)
     return new mapboxgl.Marker()
         .setLngLat(location)
         .addTo(map)
         .setPopup(createPopup(popInfo));
+}
+
+function scrollToTOp(){
+    window.scrollTo({
+        left: 0,
+        top: 0,
+        behavior: "smooth",
+    })
 }
 
 // Function to create the popup
@@ -227,3 +236,9 @@ function findWindDirection(deg) {
         return "N";
     }
 }
+
+$('#map-scroll').on('click', function(e){
+    e.preventDefault();
+    const mapDiv =  document.getElementById('map-div')
+    mapDiv.scrollIntoView({behavior: "smooth"})
+})
