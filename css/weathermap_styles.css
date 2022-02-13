@@ -12,17 +12,30 @@ body {
     background-size: cover;
 }
 
-.main-info {
+#main-div {
     flex-direction: column;
-
 }
 
-#city_name {
-    text-align: center;
+#main-info {
+    margin-top: 1em;
 }
 
-.right-info {
-    flex-direction: column;
+#main-info .card-body {
+    justify-content: space-between;
+    align-items: center;
+}
+
+#current-day-info {
+    margin-bottom: 1em;
+}
+
+#curr_temps {
+    align-items: center;
+    justify-content: space-between;
+}
+
+#temps {
+    flex-direction: column;;
 }
 
 .card {
@@ -32,7 +45,7 @@ body {
 }
 
 #map {
-    margin-top: 4em;
+    margin-top: 1em;
     width: 100%;
     height: 300px;
     border: 3px solid #28688C;
@@ -40,6 +53,7 @@ body {
 }
 
 .clear-day {
+    color: black;
     background: linear-gradient(0deg, rgba(201, 246, 255, 1) 0%, rgba(151, 235, 244, 1) 25%, rgba(122, 229, 245, 1) 50%, rgba(101, 221, 239, 1) 75%, rgba(53, 214, 237, 1) 100%) no-repeat;
 }
 
@@ -61,75 +75,161 @@ body {
 }
 
 @media (min-width: 768px) {
-    body{
-        width: 100%;
+    body {
+        height: 100vh
     }
-    .main-info {
-        flex-direction: row;
-        align-items: center;
+
+    .geocoder {
+        display: flex;
+        justify-content: flex-end;
+    }
+
+    #main-div {
         margin-top: 1em;
+        flex-direction: row;
+        justify-content: space-between;
+        flex-wrap: wrap;
+    }
+
+    #main-info {
+        margin-top: 0;
+    }
+
+    #current-day-info {
+        max-width: 50%;
+    }
+    #current-day-info .card-header h3{
+             font-size: 20px;
+         }
+    #current-day-info .card-body div h3{
+        font-size: 20px;
+    }
+    #current-day-info .card {
+        min-height: 333px;
+    }
+
+    #curr_temps {
+        font-size: 18px;
+        padding: 0 4em;
+    }
+
+    #other-data {
+        font-size: 18px;
+        padding: 0 4em;
+    }
+
+    #carousel {
+        min-height: 332px;
+        width: 49%;
+    }
+
+    #carousel .card {
+        min-height: 333px;
     }
 
     #city_time {
         align-self: flex-start;
     }
 
-    #curr-temp {
-        flex-grow: 1;
-        display: flex;
-        justify-content: center;
-    }
-
-    .curr-options {
-        align-items: flex-start;
-    }
-
     .carousel-inner {
-        width: 75%;
+        width: 100%;
+    }
+
+    #map {
+        height: 50vh;
     }
 }
 
 @media (min-width: 1024px) {
+    body {
+        height: 100%;
+    }
+
     #main-div {
-        width: 100%;
+        height: 100vh;
     }
 
-    .main-info {
-        margin: .5em;
-        flex-direction: row;
+    #main-info .card-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+    }
+    #hourly {
+        margin: 0 0 0 .5em;
+        width: calc(50% - .5em);
+        display: flex;
+        flex-wrap: wrap;
     }
 
-    #city_time {
+    #hourly .card {
+        margin: .5em .2em;
+        height: calc(50% - 1em);
+        width: calc(16% - .4em);
+
+    }
+
+    #hourly .card .card-header {
+        padding: 0;
+        margin: 0;
+        font-size: 12px;
+        text-align: center;
+    }
+    #hourly .card-body {
         display: flex;
         flex-direction: column;
+        align-items: center;
+        padding: .5em;
+    }
+    #hourly .card-body div:first-of-type {
+        margin-top: .5em;
+    }
+    #hourly .card-body div:last-of-type {
+        margin-top: .2em;
+        margin-bottom: 1em;
     }
 
-    #curr-temp h5 {
-        font-size: 30px;
+    #hourly .card img {
+        margin-top: auto;
+        width: 50px;
     }
 
-    .right-info {
-        align-items: flex-start;
+    #current-day-info {
+        width: calc(50% - .5em);
+        margin: 0 .2em 0 0;
+    }
+
+    #current-day-info .card {
+        width: 100%;
+        height: 50vh;
+    }
+
+    #curr-temp {
+        font-size: 25px;
     }
 
     #weather-cards {
-        width: 100%;
-        font-size: 16px;
         display: flex;
+        flex-wrap: wrap;
         justify-content: space-between;
+        height: 50vh;
     }
 
-    .card {
-        width: 163px;
+    #weather-cards .card {
+        width: 33%;
+        margin: .5em 0;
     }
 
-    img {
-        width: 50px;
+    #map-div {
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
 
     #map {
         margin-top: 1em;
-        height: 400px;
+        height: 600px;
         border: 3px solid #28688C;
         border-radius: 10px;
     }

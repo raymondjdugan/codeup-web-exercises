@@ -1,19 +1,47 @@
-function createHTML(utc, temp, humid, windDir, curr_high, curr_low, city) {
+function currentHTML(utc, temp, humid, windDir, curr_high, curr_low, icon, backgroundClass, city) {
     //language=HTML
     return `
-        <div class="d-flex main-info">
-            <div class="" id="city_time">
-                <h5 id="city_name">${city}</h5>
-                <h5 id="time">Time: ${setTime(utc)}</h5>
+        <div class="card ${backgroundClass}" id="main-info">
+            <div class="card-header">
+                <h3 class="m-0">Current Conditions</h3>
+                <div class="flex-column d-none d-lg-flex">
+                    <div class="h3 m-0">${city}</div>
+                    <div>Time: ${setTime(utc)}</div>
+                </div>
             </div>
-            <div id="curr-temp">
-                <h5>Current Temperature: ${Math.round(temp)} °F</h5>
+            <div class="card-body">
+                <div class="d-flex d-lg-none justify-content-between align-items-center">
+                    <div class="h3 m-0">${city}</div>
+                    <div>Time: ${setTime(utc)}</div>
+                </div>
+                <div class="mt-3 text-center" id="curr-temp">Current Temperature: ${Math.round(temp)} °F</div>
+                <div class="d-flex" id="curr_temps">
+                    <div class="d-flex" id="temps">
+                        <div>High: ${Math.round(curr_high)}°F</div>
+                        <div>Low: ${Math.round(curr_low)}°F</div>
+                    </div>
+                    <div>
+                        <img src="http://openweathermap.org/img/wn/${icon}@2x.png" alt="">
+                    </div>
+                </div>
+                <div class="d-flex flex-column" id="other-data">
+                    <div>Humidity: ${humid}%</div>
+                    <div>Wind: ${windDir}</div>
+
+                </div>
             </div>
-            <div class="d-flex right-info curr-options">
-                <h5>Humidity: ${humid}%</h5>
-                <h5>Wind: ${windDir}</h5>
-                <h5>High: ${curr_high} °F</h5>
-                <h5>Low: ${curr_low} °F</h5>
+        </div>`
+}
+
+function hourlyHTML(utc, temp, icon, percentage, backgroundCLass) {
+    //language=HTML
+    return `
+        <div class="card ${backgroundCLass} d-flex flex-column ">
+            <div class="card-header">${setTime(utc)}</div>
+            <div class="card-body">
+                <div>${temp}°F</div>
+                <img src="http://openweathermap.org/img/wn/${icon}@2x.png" alt="">
+                <div>${percentage}%</div>
             </div>
         </div>`
 }
@@ -45,7 +73,10 @@ function createCarousel(day_high, day_low, icon, desc, hum, windDir, classNam, b
     return `
         <div class="${classNam} " data-interval="3000">
             <div class="card ${backgroundClass}">
-                <div class="card-header text-center">${setDate(utc)}</div>
+                <div class="card-header d-flex justify-content-between">
+                    <div class="h5 m-0">5 Day Forecast</div>
+                    <div>${setDate(utc)}</div>
+                </div>
                 <div class="card-body px-3 pt-0 pb-5">
                     <div class="d-flex justify-content-between align-items-center">
                         <div class="d-flex flex-column">
@@ -65,7 +96,10 @@ function createCarousel(day_high, day_low, icon, desc, hum, windDir, classNam, b
 }
 
 function setTime(utc) {
-    return new Date(utc * 1000).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })
+    return new Intl.DateTimeFormat(navigator.language, {
+        hour: "numeric",
+        minute: "numeric"
+    }).format(new Date(utc * 1000))
 }
 
 function setCapitaization(str) {
@@ -89,18 +123,59 @@ function setDate(utc) {
     return new Date(utc * 1000).toLocaleDateString(navigator.language)
 }
 
-function setDailyBackground(icon) {
+function setBackground(icon) {
     if (icon === '13d') {
         return 'snow' //snow
     } else if (icon === '09D' || icon === '10d' || icon === '11d') {
         return 'rain' // rain
     } else if (icon === '02d' || icon === '04d' || icon === '05d') {
         return 'cloudy' // cloud
+    } else if (icon === '01n') {
+        return 'nightTime'
     } else {
         return 'clear-day' // clear
     }
 }
 
+function rainPercentage(code) {
+    let percentage = 0;
+    const light = [200, 210, 230, 231, 232, 300, 301, 302, 310, 311, 312, 500, 520];
+    const normal = [201, 211, 313, 321, 501, 521];
+    const heavy = [202, 212, 221, 314, 502, 503, 504, 522, 531];
+
+    light.forEach(weatherCode => {
+        if (code === weatherCode){
+            percentage = getRandomPercentage(1, 33);
+        }
+    })
+
+    normal.forEach(weatherCode => {
+        if (code === weatherCode){
+            percentage = getRandomPercentage(34, 67);
+        }
+    })
+
+    heavy.forEach(weatherCode => {
+        if (code === weatherCode){
+            percentage = getRandomPercentage(67, 100);
+        }
+    })
+    return percentage;
+}
+
+function snowPercentage(code) {
+    if (code === 200) {
+        const lightSnow = [511, 600, 611, 612, 613];
+        const normalSnow = [601, 615, 616, 620, 621];
+        const heavySnow = [602, 622];
+    }
+}
+
+function getRandomPercentage(max, min){
+    min = Math.ceil(min)
+    max = Math.floor(max)
+    return Math.floor(Math.random() * (max - min) + min)
+}
 //Function to create the marker and call the create popup function
 function createMarker(location, popInfo) {
     $('.mapboxgl-marker').remove()

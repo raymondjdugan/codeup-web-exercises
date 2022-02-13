@@ -23,38 +23,55 @@ function getWeatherData(lon, lat) {
         lon: lon,
         units: "imperial"
     }).then(function (weatherData) {
-        const CURRENT_UTC_TIME = weatherData.current.dt
-        const CURRENT_TEMP = weatherData.current.temp
-        const CURRENT_HUMIDITY = weatherData.current.humidity
-        const CURRENT_WIND_DIRECTION = findWindDirection(weatherData.current.wind_deg)
-        const CURRENT_MAX_TEMP = Math.round(weatherData.daily[0].temp.max)
-        const CURRENT_MIN_TEMP = Math.round(weatherData.daily[0].temp.min)
+        console.log(weatherData)
+        const currentUtcTime = weatherData.current.dt
+        const currentTemp = weatherData.current.temp
+        const currentHumidity = weatherData.current.humidity
+        const currentWindDirection = findWindDirection(weatherData.current.wind_deg)
+        const currentMaxTemp = Math.round(weatherData.daily[0].temp.max)
+        const currentMinTemp = Math.round(weatherData.daily[0].temp.min)
+        const currentIcon = weatherData.current.weather[0].icon
+        const currBackground = setBackground(weatherData.current.weather[0].icon)
 
         $('#weather-cards').html(" ")
-        $('body').addClass(currentBackground(CURRENT_UTC_TIME))
+        $('body').addClass(setBackground(currentIcon))
 
-        $('#top-info').html(createHTML(CURRENT_UTC_TIME, CURRENT_TEMP, CURRENT_HUMIDITY, CURRENT_WIND_DIRECTION, CURRENT_MAX_TEMP, CURRENT_MIN_TEMP, city))
+        $('#current-day-info').html(currentHTML(currentUtcTime, currentTemp, currentHumidity, currentWindDirection, currentMaxTemp, currentMinTemp, currentIcon, currBackground, city))
 
         $('#carousel-append').html(' ')
         weatherData.daily.forEach(function (day, i) {
-            const DAILY_MAX_TEMP = day.temp.max
-            const DAILY_MIN_TEMP = day.temp.min
-            const DAILY_WEATHER_ICON = day.weather[0].icon
-            const DAILY_WEATHER_DESCRIPTION = day.weather[0].description
-            const DAILY_HUMIDITY = day.humidity
-            const DAILY_WIND_DIRECTION = day.wind_deg
-            const DAILY_BACKGROUND = setDailyBackground(day.weather[0].icon)
-            const DAILY_TIME = day.dt
+            const dailyMaxTemp = day.temp.max
+            const dailyMinTemp = day.temp.min
+            const dailyIcon = day.weather[0].icon
+            const dailyDescription = day.weather[0].description
+            const dailyHumidity = day.humidity
+            const dailyWindDirection = findWindDirection(day.wind_deg)
+            const dailyBackground = setBackground(day.weather[0].icon)
+            const dailyTime = day.dt
 
             if (i > 0 && i < 7) {
-                $('#weather-cards').append(fiveDayForcastHTML(DAILY_MAX_TEMP, DAILY_MIN_TEMP,DAILY_WEATHER_ICON, DAILY_WEATHER_DESCRIPTION, DAILY_HUMIDITY, DAILY_WIND_DIRECTION, DAILY_BACKGROUND, day.dt))
+                $('#weather-cards').append(fiveDayForcastHTML(dailyMaxTemp, dailyMinTemp,dailyIcon, dailyDescription, dailyHumidity, dailyWindDirection, dailyBackground, day.dt))
 
             if (i === 1) {
-                    $('#carousel-append').append(createCarousel(DAILY_MAX_TEMP, DAILY_MIN_TEMP, DAILY_WEATHER_ICON, DAILY_WEATHER_DESCRIPTION, DAILY_HUMIDITY, DAILY_WIND_DIRECTION, 'carousel-item active', DAILY_BACKGROUND, DAILY_TIME))
+                    $('#carousel-append').append(createCarousel(dailyMaxTemp, dailyMinTemp, dailyIcon, dailyDescription, dailyHumidity, dailyWindDirection, 'carousel-item active', dailyBackground, dailyTime))
             } else if (i > 1 && i <= 7) {
-                    $('#carousel-append').append(createCarousel(DAILY_MAX_TEMP, DAILY_MIN_TEMP, DAILY_WEATHER_ICON, DAILY_WEATHER_DESCRIPTION, DAILY_HUMIDITY, DAILY_WIND_DIRECTION, 'carousel-item', DAILY_BACKGROUND, DAILY_TIME))
+                    $('#carousel-append').append(createCarousel(dailyMaxTemp, dailyMinTemp, dailyIcon, dailyDescription, dailyHumidity, dailyWindDirection, 'carousel-item', dailyBackground, dailyTime))
                 }
             }
+        })
+
+        $('#hourly').html(' ')
+        weatherData.hourly.forEach((hour, index) => {
+            const hourlyTime = hour.dt;
+            const hourlyTemp = Math.round(hour.temp);
+            const hourlyIcon = hour.weather[0].icon;
+            const percentage = 12;
+            const background = setBackground(hour.weather[0].icon)
+            if (index > 0 && index < 13 ) {
+                // utc, temp, icon, percentage, backgroundCLass
+                $('#hourly').append(hourlyHTML(hourlyTime, hourlyTemp, hourlyIcon, percentage, background))
+            }
+
         })
 
     })
