@@ -61,7 +61,7 @@ function fiveDayForcastHTML(day_high, day_low, icon, desc, hum, windDir, backgro
                         <img src="http://openweathermap.org/img/wn/${icon}@2x.png" alt="">
                     </div>
                 </div>
-                <div>${setCapitaization(desc)}</div>
+                <div>${setCapitalization(desc)}</div>
                 <div>Humidity: ${hum}%</div>
                 <div>Wind: ${windDir}</div>
             </div>
@@ -87,7 +87,7 @@ function createCarousel(day_high, day_low, icon, desc, hum, windDir, classNam, b
                             <img src="http://openweathermap.org/img/wn/${icon}@2x.png" alt="">
                         </div>
                     </div>
-                    <div>${setCapitaization(desc)}</div>
+                    <div>${setCapitalization(desc)}</div>
                     <div>Humidity: ${hum}%</div>
                     <div>Wind: ${windDir}</div>
                 </div>
@@ -102,7 +102,7 @@ function setTime(utc) {
     }).format(new Date(utc * 1000))
 }
 
-function setCapitaization(str) {
+function setCapitalization(str) {
     return str.charAt(0).toUpperCase() + str.slice(1)
 }
 
@@ -187,6 +187,12 @@ function createMarker(location, popInfo) {
         .setPopup(createPopup(popInfo));
 }
 
+// Function to create the popup
+function createPopup(info) {
+    return new mapboxgl.Popup()
+        .setHTML(info);
+}
+
 function scrollToTOp(){
     window.scrollTo({
         left: 0,
@@ -195,11 +201,6 @@ function scrollToTOp(){
     })
 }
 
-// Function to create the popup
-function createPopup(info) {
-    return new mapboxgl.Popup()
-        .setHTML(info);
-}
 
 function findWindDirection(deg) {
     if (deg > 11.25 && deg < 33.75) {

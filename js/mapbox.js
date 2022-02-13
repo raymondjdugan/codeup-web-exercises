@@ -54,7 +54,7 @@ function mapOptions() {
 }
 
 // Function to create geocoder and create the on function to set marker on the geocoder input
-function geoCoder(){
+function geoCoder() {
     // Create geocoder
     const geocoder = new MapboxGeocoder({
         accessToken: mapboxgl.accessToken, // Set the access token
@@ -66,21 +66,23 @@ function geoCoder(){
 
     // Function to get the coordinates and name of the input
     // Calls the create marker function
-    geocoder.on('result', function(event){
+    geocoder.on('result', function (event) {
         createMarker(event.result.center, event.result.place_name)
     })
 }
+
 geoCoder()
 
 // Function to add zoom
-function addZoom(mapObj){
+function addZoom(mapObj) {
     return mapObj.addControl(new mapboxgl.NavigationControl());
 }
+
 addZoom(map)
 
 
 //Function to create the marker and call the create popup function
-function createMarker(location, popInfo){
+function createMarker(location, popInfo) {
     return new mapboxgl.Marker()
         .setLngLat(location)
         .addTo(map)
@@ -88,25 +90,27 @@ function createMarker(location, popInfo){
 }
 
 // Function to create the popup
-function createPopup(info){
+function createPopup(info) {
     return new mapboxgl.Popup()
         .setHTML(info);
 }
 
 
 // Function to create the popup html string for the hard-coded data
-function createHTML(htmlInfo){
-    return `<div class="popup">
+function createHTML(htmlInfo) {
+    //language=HTML
+    return `
+        <div class="popup">
             <img src="${htmlInfo.popupHTML.imgSrc}" alt="${htmlInfo.popupHTML.alt}">
             <h6>${htmlInfo.popupHTML.heading}</h6>
             <p>Menu: <a href="${htmlInfo.popupHTML.link}">${htmlInfo.name}</a></p>
-            </div>`
+        </div>`
 }
 
 // Function to get the location of the hard coded data and call the create marker function
-function getLocation(info, token) {
-    geocode(info.address, token).then(function (coordinates) {
-        createMarker(coordinates, createHTML(info))
+function getLocation(restaurant, token) {
+    geocode(restaurant.address, token).then(function (coordinates) {
+        createMarker(coordinates, createHTML(restaurant))
     });
 }
 
@@ -116,6 +120,7 @@ function setRest(restData) {
         getLocation(restaurant, RAYMOND_DUGAN_KEY)
     });
 }
+
 setRest(locArray)
 
 const layerList = document.getElementById('menu');
@@ -128,7 +133,7 @@ for (const input of inputs) {
     };
 }
 
-$('#hide').click(function (){
+$('#hide').click(function () {
     $('.mapboxgl-marker').remove()
 })
 

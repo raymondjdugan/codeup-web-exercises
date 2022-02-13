@@ -34,7 +34,7 @@ function getWeatherData(lon, lat) {
         const currBackground = setBackground(weatherData.current.weather[0].icon)
 
         $('#weather-cards').html(" ")
-        $('body').addClass(setBackground(currentIcon))
+        $('body').addClass(currentBackground(currentUtcTime))
 
         $('#current-day-info').html(currentHTML(currentUtcTime, currentTemp, currentHumidity, currentWindDirection, currentMaxTemp, currentMinTemp, currentIcon, currBackground, city))
 
