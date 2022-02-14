@@ -1,3 +1,4 @@
+// Function that creates the html markup for the current days conditions
 function currentHTML(utc, temp, humid, windDir, curr_high, curr_low, icon, backgroundClass, city) {
     //language=HTML
     return `
@@ -33,7 +34,9 @@ function currentHTML(utc, temp, humid, windDir, curr_high, curr_low, icon, backg
         </div>`
 }
 
-function hourlyHTML(utc, temp, icon, percentage, backgroundCLass) {
+// Function that creates the markup for the hourly conditions
+function hourlyHTML(utc, temp, icon, code, backgroundCLass) {
+    console.log(code)
     //language=HTML
     return `
         <div class="card ${backgroundCLass} d-flex flex-column ">
@@ -41,12 +44,14 @@ function hourlyHTML(utc, temp, icon, percentage, backgroundCLass) {
             <div class="card-body">
                 <div>${temp}°F</div>
                 <img src="http://openweathermap.org/img/wn/${icon}@2x.png" alt="">
-                <div>${percentage}%</div>
+                <div>${rainPercentage(code)}%</div>
             </div>
         </div>`
 }
 
-function fiveDayForcastHTML(day_high, day_low, icon, desc, hum, windDir, backgroundClass, utc) {
+// Function that creates the markup for the next 6 days (excluding the current day)
+// For screens lg and above
+function sixDayForcastHTML(day_high, day_low, icon, desc, hum, windDir, backgroundClass, utc) {
     //language=HTML
     return `
         <div class="card d-none d-md-flex ${backgroundClass}">
@@ -68,6 +73,8 @@ function fiveDayForcastHTML(day_high, day_low, icon, desc, hum, windDir, backgro
         </div>`
 }
 
+// Function that creates the markup for the next 6 days (excluding the current day)
+// This is for xs - md screens
 function createCarousel(day_high, day_low, icon, desc, hum, windDir, classNam, backgroundClass, utc) {
     //language=HTML
     return `
@@ -95,6 +102,7 @@ function createCarousel(day_high, day_low, icon, desc, hum, windDir, classNam, b
         </div>`
 }
 
+// Function that formats the time from the UTC data
 function setTime(utc) {
     return new Intl.DateTimeFormat(navigator.language, {
         hour: "numeric",
@@ -102,15 +110,20 @@ function setTime(utc) {
     }).format(new Date(utc * 1000))
 }
 
+// Function that capitalizes the first letter for the data description
 function setCapitalization(str) {
     return str.charAt(0).toUpperCase() + str.slice(1)
 }
 
+// Function that converts the UTC to 24 hour time
+// This is used to determine if it is day or night for the body background
 function convertTime24Hour(utcTIme) {
     return new Date(utcTIme * 1000).toLocaleTimeString(navigator.language, {hour12: false})
 }
 
-function currentBackground(dt) {
+// Sets the body background to either day or night
+// Day is between 0700 and 1800
+function setBodyBackground(dt) {
     let currentTime = convertTime24Hour(dt)
     if (parseInt(currentTime.slice(0, 2)) > 7 && parseInt(currentTime.slice(0, 2)) < 18) {
         return 'clear-day'
@@ -119,24 +132,30 @@ function currentBackground(dt) {
     }
 }
 
+// Function to format the date from the UTC data
 function setDate(utc) {
     return new Date(utc * 1000).toLocaleDateString(navigator.language)
 }
 
-function setBackground(icon) {
+// Function to set the card backgrounds
+// This is done with the icons
+function setCardBackground(icon) {
     if (icon === '13d') {
         return 'snow' //snow
-    } else if (icon === '09D' || icon === '10d' || icon === '11d') {
+    } else if (icon === '09D' || icon === '10d') {
         return 'rain' // rain
+    } else if ( icon === '11d') {
+        return 'storm'
     } else if (icon === '02d' || icon === '04d' || icon === '05d') {
         return 'cloudy' // cloud
     } else if (icon === '01n') {
-        return 'nightTime'
+        return 'stars'
     } else {
-        return 'clear-day' // clear
+        return 'clear' // clear
     }
 }
 
+// Set rain percentages from the weather.id code
 function rainPercentage(code) {
     let percentage = 0;
     const light = [200, 210, 230, 231, 232, 300, 301, 302, 310, 311, 312, 500, 520];
@@ -160,9 +179,11 @@ function rainPercentage(code) {
             percentage = getRandomPercentage(67, 100);
         }
     })
+
     return percentage;
 }
 
+// Set snow percentages from the weather.id code
 function snowPercentage(code) {
     if (code === 200) {
         const lightSnow = [511, 600, 611, 612, 613];
@@ -171,11 +192,14 @@ function snowPercentage(code) {
     }
 }
 
+// Returns a random number for percentages function
 function getRandomPercentage(max, min){
     min = Math.ceil(min)
     max = Math.floor(max)
     return Math.floor(Math.random() * (max - min) + min)
 }
+
+
 //Function to create the marker and call the create popup function
 function createMarker(location, popInfo) {
     $('.mapboxgl-marker').remove()
@@ -193,15 +217,7 @@ function createPopup(info) {
         .setHTML(info);
 }
 
-function scrollToTOp(){
-    window.scrollTo({
-        left: 0,
-        top: 0,
-        behavior: "smooth",
-    })
-}
-
-
+// Find the wind direction using the degrees from the data
 function findWindDirection(deg) {
     if (deg > 11.25 && deg < 33.75) {
         return "NNE";
@@ -238,6 +254,15 @@ function findWindDirection(deg) {
     }
 }
 
+// Scroll to the top of the page instead of jump
+function scrollToTOp(){
+    window.scrollTo({
+        left: 0,
+        top: 0,
+        behavior: "smooth",
+    })
+}
+// Scroll to the map div instead of jump
 $('#map-scroll').on('click', function(e){
     e.preventDefault();
     const mapDiv =  document.getElementById('map-div')

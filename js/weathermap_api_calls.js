@@ -31,10 +31,10 @@ function getWeatherData(lon, lat) {
         const currentMaxTemp = Math.round(weatherData.daily[0].temp.max)
         const currentMinTemp = Math.round(weatherData.daily[0].temp.min)
         const currentIcon = weatherData.current.weather[0].icon
-        const currBackground = setBackground(weatherData.current.weather[0].icon)
+        const currBackground = setCardBackground(weatherData.current.weather[0].icon)
 
         $('#weather-cards').html(" ")
-        $('body').addClass(currentBackground(currentUtcTime))
+        $('body').addClass(setBodyBackground(currentUtcTime))
 
         $('#current-day-info').html(currentHTML(currentUtcTime, currentTemp, currentHumidity, currentWindDirection, currentMaxTemp, currentMinTemp, currentIcon, currBackground, city))
 
@@ -46,11 +46,11 @@ function getWeatherData(lon, lat) {
             const dailyDescription = day.weather[0].description
             const dailyHumidity = day.humidity
             const dailyWindDirection = findWindDirection(day.wind_deg)
-            const dailyBackground = setBackground(day.weather[0].icon)
+            const dailyBackground = setCardBackground(day.weather[0].icon)
             const dailyTime = day.dt
 
             if (i > 0 && i < 7) {
-                $('#weather-cards').append(fiveDayForcastHTML(dailyMaxTemp, dailyMinTemp,dailyIcon, dailyDescription, dailyHumidity, dailyWindDirection, dailyBackground, day.dt))
+                $('#weather-cards').append(sixDayForcastHTML(dailyMaxTemp, dailyMinTemp,dailyIcon, dailyDescription, dailyHumidity, dailyWindDirection, dailyBackground, day.dt))
 
             if (i === 1) {
                     $('#carousel-append').append(createCarousel(dailyMaxTemp, dailyMinTemp, dailyIcon, dailyDescription, dailyHumidity, dailyWindDirection, 'carousel-item active', dailyBackground, dailyTime))
@@ -65,11 +65,11 @@ function getWeatherData(lon, lat) {
             const hourlyTime = hour.dt;
             const hourlyTemp = Math.round(hour.temp);
             const hourlyIcon = hour.weather[0].icon;
-            const percentage = 12;
-            const background = setBackground(hour.weather[0].icon)
+            const rainCode = hour.weather[0].id;
+            const background = setCardBackground(hour.weather[0].icon)
             if (index > 0 && index < 13 ) {
                 // utc, temp, icon, percentage, backgroundCLass
-                $('#hourly').append(hourlyHTML(hourlyTime, hourlyTemp, hourlyIcon, percentage, background))
+                $('#hourly').append(hourlyHTML(hourlyTime, hourlyTemp, hourlyIcon, rainCode, background))
             }
 
         })
