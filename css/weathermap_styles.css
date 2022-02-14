@@ -33,9 +33,11 @@ body {
     align-items: center;
     justify-content: space-between;
 }
-
+#other-forecasts {
+    display: none;
+}
 #temps {
-    flex-direction: column;;
+    flex-direction: column;
 }
 
 .card {
@@ -56,17 +58,20 @@ body {
     color: black;
     background: linear-gradient(0deg, rgba(201, 246, 255, 1) 0%, rgba(151, 235, 244, 1) 25%, rgba(122, 229, 245, 1) 50%, rgba(101, 221, 239, 1) 75%, rgba(53, 214, 237, 1) 100%) no-repeat;
 }
+
 .clear {
     color: black;
     background-image: url("/img/weathermap/clear2.jpg");
     background-repeat: no-repeat;
 }
+
 .nightTime {
     color: white;
     background: linear-gradient(0deg, rgba(1, 66, 109, 1) 0%, rgba(0, 58, 99, 1) 20%, rgba(1, 49, 85, 1) 40%, rgba(0, 39, 70, 1) 60%, rgba(0, 29, 55, 1) 80%, rgba(1, 22, 46, 1) 100%) no-repeat;
 }
 
 .stars {
+    color: white;
     background-image: url("/img/weathermap/stars.jpg");
     background-repeat: no-repeat;
 }
@@ -83,6 +88,7 @@ body {
     background-image: url("/img/weathermap/rain.jpg");
     background-repeat: no-repeat;
 }
+
 .storm {
     background-image: url("/img/weathermap/storm.jpg.jpg");
     background-repeat: no-repeat;
@@ -118,12 +124,15 @@ body {
     #current-day-info {
         max-width: 50%;
     }
-    #current-day-info .card-header h3{
-             font-size: 20px;
-         }
-    #current-day-info .card-body div h3{
+
+    #current-day-info .card-header h3 {
         font-size: 20px;
     }
+
+    #current-day-info .card-body div h3 {
+        font-size: 20px;
+    }
+
     #current-day-info .card {
         min-height: 333px;
     }
@@ -173,13 +182,34 @@ body {
         display: flex;
         justify-content: space-between;
         align-items: center;
-
     }
+
+    #current-day-info {
+        width: calc(40% - .5em);
+        margin: 0 .2em 0 0;
+        height: 50vh;
+    }
+
+    #current-day-info .card {
+        width: 100%;
+        height: 50vh;
+    }
+
+    #curr-temp {
+        font-size: 25px;
+    }
+
+    #other-forecasts {
+        width: calc(60% - .5em);
+        height: 50vh;
+        display: block;
+    }
+
     #hourly {
-        margin: 0 0 0 .5em;
-        width: calc(50% - .5em);
+        width: 100%;
         display: flex;
         flex-wrap: wrap;
+        justify-content: space-between;
     }
 
     #hourly .card {
@@ -195,15 +225,18 @@ body {
         font-size: 12px;
         text-align: center;
     }
+
     #hourly .card-body {
         display: flex;
         flex-direction: column;
         align-items: center;
         padding: .5em;
     }
+
     #hourly .card-body div:first-of-type {
         margin-top: .5em;
     }
+
     #hourly .card-body div:last-of-type {
         margin-top: .2em;
         margin-bottom: 1em;
@@ -214,32 +247,29 @@ body {
         width: 50px;
     }
 
-    #current-day-info {
-        width: calc(50% - .5em);
-        margin: 0 .2em 0 0;
-    }
-
-    #current-day-info .card {
-        width: 100%;
-        height: 50vh;
-    }
-
-    #curr-temp {
-        font-size: 25px;
-    }
-
     #weather-cards {
         display: flex;
         flex-wrap: wrap;
         justify-content: space-between;
-        height: 50vh;
+
     }
 
     #weather-cards .card {
         width: 33%;
+        height: 180px;
         margin: .5em 0;
     }
 
+    #weather-cards .card img{
+        width: 50px;
+    }
+
+    #ad-space {
+        border: 2px solid #28688C;
+        border-radius: 10px;
+        height: 100px;
+        padding: .5em 1em;
+    }
     #map-div {
         height: 100vh;
         display: flex;
@@ -259,15 +289,19 @@ body {
     #current-day-info .card .card-body div {
         font-size: 30px;
     }
+
     #curr_temps {
         margin: 1em 0;
     }
+
     #weather-cards {
         width: 100%;
     }
+
     #weather-cards .card .card-body {
         font-size: 18px;
     }
+
     #curr-temp h5 {
         font-size: 40px;
     }

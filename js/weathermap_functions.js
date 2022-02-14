@@ -56,7 +56,7 @@ function sixDayForcastHTML(day_high, day_low, icon, desc, hum, windDir, backgrou
     return `
         <div class="card d-none d-md-flex ${backgroundClass}">
             <div class="card-header m-0 p-0 text-center">${setDate(utc)}</div>
-            <div class="card-body py-0 px-2 p-xl-4">
+            <div class="card-body py-0 px-sm-2 px-lg-2">
                 <div class="d-flex justify-content-between align-items-center">
                     <div class="d-flex flex-column">
                         <div>High: ${Math.round(day_high)}°F</div>

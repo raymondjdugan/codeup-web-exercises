@@ -36,8 +36,32 @@
 <div class="container-fluid">
     <div id="main-div" class="d-flex">
         <div id="current-day-info"></div>
-        <div class="d-none d-lg-flex" id="hourly"></div>
-        <div id="weather-cards" class="d-none d-lg-flex"></div>
+        <div id="other-forecasts">
+                <ul class="nav nav-tabs" id="myTab" role="tablist">
+                    <li class="nav-item" role="presentation">
+                        <a class="nav-link active" id="six-day-forecast-tab" data-toggle="tab" href="#six-day-forecast"
+                           role="tab" aria-controls="six-day-forecast" aria-selected="true">6-Day Forecast</a>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <a class="nav-link" id="hourly-forecast-tab" data-toggle="tab" href="#hourly-forecast"
+                           role="tab" aria-controls="hourly-forecast" aria-selected="false">Hourly Forecast</a>
+                    </li>
+                </ul>
+                <div class="tab-content" id="myTabContent">
+                    <div class="tab-pane fade show active" id="six-day-forecast" role="tabpanel"
+                         aria-labelledby="six-day-forecast">
+                        <div id="weather-cards" class="d-none d-lg-flex"></div>
+                    </div>
+                    <div class="tab-pane fade" id="hourly-forecast" role="tabpanel" aria-labelledby="hourly-forecast">
+                        <div class="d-none d-lg-flex" id="hourly"></div>
+                    </div>
+                </div>
+            </div>
+        <div class="d-none d-lg-flex" id="ad-space">
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda culpa dignissimos eaque pariatur
+            provident? Atque ipsum itaque perferendis sit totam! A, adipisci aliquam architecto asperiores dolores eaque
+            enim eum excepturi expedita facere facilis fuga quae quas sapiente sunt tenetur voluptatum!
+        </div>
         <div id="carousel" class="carousel slide d-lg-none " data-ride="carousel">
             <ol class="carousel-indicators">
                 <li data-target="#carousel" data-slide-to="0" class="active"></li>
@@ -51,6 +75,7 @@
             </div>
         </div>
     </div>
+
     <div id="map-div">
         <div class="d-none d-md-block" id="map"></div>
     </div>
