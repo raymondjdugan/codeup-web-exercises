@@ -23,7 +23,6 @@ function getWeatherData(lon, lat) {
         lon: lon,
         units: "imperial"
     }).then(function (weatherData) {
-        console.log(weatherData)
         const currentUtcTime = weatherData.current.dt
         const currentTemp = weatherData.current.temp
         const currentHumidity = weatherData.current.humidity

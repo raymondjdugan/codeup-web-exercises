@@ -32,7 +32,6 @@ function currentHTML(utc, temp, humid, windDir, curr_high, curr_low, icon, backg
 
 // Function that creates the markup for the hourly conditions
 function hourlyHTML(utc, temp, icon, code, backgroundCLass) {
-    console.log(code)
     //language=HTML
     return `
         <div class="card ${backgroundCLass} d-flex flex-column ">
@@ -77,7 +76,7 @@ function createCarousel(day_high, day_low, icon, desc, hum, windDir, classNam, b
         <div class="${classNam} " data-interval="3000">
             <div class="card ${backgroundClass}">
                 <div class="card-header d-flex justify-content-between">
-                    <div class="h5 m-0">5 Day Forecast</div>
+                    <div class="h5 m-0">6 Day Forecast</div>
                     <div>${setDate(utc)}</div>
                 </div>
                 <div class="card-body px-3 pt-0 pb-5">
