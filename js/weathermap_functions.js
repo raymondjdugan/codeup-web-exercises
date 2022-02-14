@@ -3,15 +3,11 @@ function currentHTML(utc, temp, humid, windDir, curr_high, curr_low, icon, backg
     //language=HTML
     return `
         <div class="card ${backgroundClass}" id="main-info">
-            <div class="card-header">
-                <h3 class="m-0">Current Conditions</h3>
-                <div class="flex-column d-none d-lg-flex">
-                    <div class="h3 m-0">${city}</div>
-                    <div>Time: ${setTime(utc)}</div>
-                </div>
+            <div class="card-header d-flex justify-content-center">
+                <div class="m-0 h4">Current Conditions</div>
             </div>
             <div class="card-body">
-                <div class="d-flex d-lg-none justify-content-between align-items-center">
+                <div class="justify-content-between align-items-center text-center">
                     <div class="h3 m-0">${city}</div>
                     <div>Time: ${setTime(utc)}</div>
                 </div>

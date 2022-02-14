@@ -33,9 +33,11 @@ body {
     align-items: center;
     justify-content: space-between;
 }
+
 #other-forecasts {
     display: none;
 }
+
 #temps {
     flex-direction: column;
 }
@@ -90,7 +92,7 @@ body {
 }
 
 .storm {
-    background-image: url("/img/weathermap/storm.jpg.jpg");
+    background-image: url("/img/weathermap/storm.jpg");
     background-repeat: no-repeat;
 }
 
@@ -119,10 +121,15 @@ body {
 
     #main-info {
         margin-top: 0;
+        flex-grow: 1;
+    }
+
+    #main-info .card {
+        min-height: 350px;
     }
 
     #current-day-info {
-        max-width: 50%;
+        width: 50%;
     }
 
     #current-day-info .card-header h3 {
@@ -139,12 +146,10 @@ body {
 
     #curr_temps {
         font-size: 18px;
-        padding: 0 4em;
     }
 
     #other-data {
         font-size: 18px;
-        padding: 0 4em;
     }
 
     #carousel {
@@ -153,7 +158,7 @@ body {
     }
 
     #carousel .card {
-        min-height: 333px;
+        min-height: 350px;
     }
 
     #city_time {
@@ -260,7 +265,7 @@ body {
         margin: .5em 0;
     }
 
-    #weather-cards .card img{
+    #weather-cards .card img {
         width: 50px;
     }
 
@@ -269,7 +274,9 @@ body {
         border-radius: 10px;
         height: 100px;
         padding: .5em 1em;
+        margin: 0 auto;
     }
+
     #map-div {
         height: 100vh;
         display: flex;
