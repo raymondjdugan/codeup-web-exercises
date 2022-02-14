@@ -199,7 +199,6 @@ function getRandomPercentage(max, min){
 function createMarker(location, popInfo) {
     $('.mapboxgl-marker').remove()
     map.setCenter(location)
-    setTimeout(scrollToTOp, 9000)
     return new mapboxgl.Marker()
         .setLngLat(location)
         .addTo(map)

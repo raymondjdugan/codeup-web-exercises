@@ -56,12 +56,15 @@ $('#geocoder').append(geocoder.onAdd(map));
 $('.mapboxgl-ctrl-geocoder--input').attr('placeholder', 'Search Your City')
 
 geocoder.on('result', function (e) {
+    setTimeout(scrollToTOp, 5000)
     city = e.result.text
     geocode(city, RAYMOND_DUGAN_KEY)
 })
 
 map.on('click', function (e) {
+    setTimeout(scrollToTOp, 5000)
     reverseGeocode(e.lngLat, RAYMOND_DUGAN_KEY)
+    console.log(e.lngLat)
 })
 
 // Add zoom and rotation controls to the map.
