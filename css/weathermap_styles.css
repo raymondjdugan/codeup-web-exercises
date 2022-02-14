@@ -204,6 +204,10 @@ body {
         font-size: 25px;
     }
 
+    #curr-cond {
+        font-size: 28px;
+    }
+
     #other-forecasts {
         width: calc(60% - .5em);
         height: 50vh;
@@ -297,12 +301,12 @@ body {
         font-size: 30px;
     }
 
-    #curr_temps {
-        margin: 1em 0;
-    }
-
     #weather-cards {
         width: 100%;
+    }
+
+    #curr-cond {
+        font-size: 28px;
     }
 
     #weather-cards .card .card-body {

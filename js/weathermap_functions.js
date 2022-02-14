@@ -4,7 +4,7 @@ function currentHTML(utc, temp, humid, windDir, curr_high, curr_low, icon, backg
     return `
         <div class="card ${backgroundClass}" id="main-info">
             <div class="card-header d-flex justify-content-center">
-                <div class="m-0 h4">Current Conditions</div>
+                <div class="m-0" id="curr-cond">Current Conditions</div>
             </div>
             <div class="card-body">
                 <div class="justify-content-between align-items-center text-center">
