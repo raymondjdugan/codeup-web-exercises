@@ -37,6 +37,8 @@
         }
     ];
 
-    const emails = users.map(user => user.email)
+    const emails = users.map(function (user){
+        return user.email
+    })
     console.log(emails)
 })
