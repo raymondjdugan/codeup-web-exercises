@@ -36,9 +36,28 @@
             yearsOfExperience: 9
         }
     ];
-
-    const emails = users.map(function (user){
-        return user.email
-    })
+    // TODO: Use .filter to create an array of user objects where each user object has at least 3 languages in the languages array.
+    const threeOrMoreLanguages = users.filter(user => user.languages.length > 2)
+    console.log(threeOrMoreLanguages)
+    // TODO: Use .map to create an array of strings where each element is a user's email address
+    const emails = users.map(user => user.email)
     console.log(emails)
-})
+    // TODO: Use .reduce to get the total years of experience from the list of users. Once you get the total of years you can use the result to calculate the average.
+    const averageYearsOfExperience = users.reduce((a, b ) => (a + b.yearsOfExperience), 0) / users.length
+    console.log(averageYearsOfExperience)
+    // TODO: Use .reduce to get the longest email from the list of users.
+    let longestEmail = emails.reduce((prev, current) => prev.length > current.length ? prev : current)
+    console.log(`Longest Email: ${longestEmail}`)
+    // TODO: Use .reduce to get the list of user's names in a single string. Example: Your instructors are: ryan, luis, zach, fernando, justin.
+    let res = users.reduce((prev, curr) => (prev.name ? prev.name : prev) + ', ' + curr.name);
+    let inst = users.reduce((string, user) => string += `${user.name}, `, "Your instructors are: ")
+    console.log(inst);
+    // TODO: Bonus: Use .reduce to get the unique list of languages from the list of users.
+    let uniqueLanguages1 = users.map(user => user.languages) // Creates nested array of languages
+        .reduce((pre, cur) => pre.concat(cur)) // Combines array
+        .reduce((unique, item) => unique.includes(item) ? unique : [...unique, item], []) //Check for uniqueness
+    console.log(uniqueLanguages1)
+    let uniqueEasy = Array.from(new Set(users.map(user => user.languages)
+        .reduce((pre, cur) => pre.concat(cur))))
+    console.log(uniqueEasy)
+}())
