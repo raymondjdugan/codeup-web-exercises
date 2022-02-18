@@ -91,3 +91,5 @@ function reverseGeocode(coordinates, token) {
             createMarker(coordinates, data.features[0].place_name)
         });
 }
+
+console.log(city)
