@@ -1,0 +1,12 @@
+.htmlColor {
+    background: black;
+    height: 100%;
+    overflow: hidden;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+/*Matrix credit to adam nagy <a href="https://dev.to/javascriptacademy/matrix-raining-code-effect-using-javascript-4hep"></a>*/

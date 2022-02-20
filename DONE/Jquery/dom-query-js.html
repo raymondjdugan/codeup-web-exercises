@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>DOM: Query and Modify</title>
+    <style>
+        body {
+            position: relative;
+            font-family: "Comic Sans MS", sans-serif;
+        }
+        .btn-group {
+            position: absolute;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            width: 30%;
+            top: 350px;
+            font-family: "Comic Sans MS", sans-serif;
+        }
+        .btn-group button {
+            height: 25px;
+            background-color: green;
+            border: none;
+            margin: .7em 0;
+            border-radius: 10px;
+            box-shadow: 0 7px #999;
+            width: 100%;
+            color: white;
+            font-family: "Comic Sans MS", sans-serif;
+        }
+
+        .btn-group button:active {
+            background-color: magenta;
+            box-shadow: 0 5px #666;
+            transform: translateY(4px);
+        }
+        #redBtn {
+            background-color: #ff0800;
+            height: 50px;
+            font-size: 1.5em;
+            font-weight: bold;
+        }
+        .gif {
+            background-image: url("https://c.tenor.com/giN2CZ60D70AAAAM/explosion-mushroom-cloud.gif");
+        }
+    </style>
+</head>
+<body>
+
+<h1 id="main-header">Hello World!</h1>
+<ul>
+    <li data-dbid="1">Item 1</li>
+    <li data-dbid="2">Item 2</li>
+    <li data-dbid="3">Item 3</li>
+    <li data-dbid="4">Item 4</li>
+    <li data-dbid="5">Item 5</li>
+</ul>
+<h2 id="sub-header">Hello Again.</h2>
+<p class="sub-paragraph">
+    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
+    eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
+    ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+    aliquip ex ea commodo consequat. Duis aute irure dolor in
+    reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+    pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
+    culpa qui officia deserunt mollit anim id est laborum.
+</p>
+<div class="btn-group">
+<button id="btn1">Change Main Header Text</button>
+<button id="btn2">Color Text Of Sub-header Blue</button>
+<button id="btn3">Color Every Other List Item Text Grey</button>
+<button id="btn4">Color Data-Dbid 1 To Blue</button>
+<button id="btn5">Change Text Of First Sub Paragraph</button>
+<button id="redBtn">DEFUSE THE BOM</button>
+</div>
+<script>
+    (function() {
+        "use strict";
+
+        const btn1 = document.getElementById('btn1');
+        const btn2 = document.getElementById('btn2');
+        const btn3 = document.getElementById('btn3');
+        const btn4 = document.getElementById('btn4');
+        const btn5 = document.getElementById('btn5');
+        const redBtn = document.getElementById('redBtn');
+        // TODO: Uncomment next line and get the main header element by id
+        const mainHeader = document.getElementById('main-header');
+
+        // TODO: Set inner html of mainHeader to "JavaScript is Cool"
+        const changeMain = function(){
+            mainHeader.innerHTML = 'JavaScript is Cool';
+        }
+        btn1.addEventListener('click', changeMain);
+
+        // TODO: Uncomment the next line and get the sub header element by id
+        const subHeader = document.getElementById('sub-header');
+
+        // TODO: Set the text color of subHeader to blue
+        btn2.addEventListener('click', function(){
+            subHeader.style.color = 'blue';
+        })
+
+        // TODO: Uncomment the next line and get all list items
+        let listItems = document.getElementsByTagName('li');
+
+        // TODO: Set text color on every other list item to grey
+        btn3.addEventListener('click', function(){
+            for (let i = 0; i < listItems.length; i++) {
+                if(i % 2 === 0 ) listItems[i].style.color = 'grey'
+            }
+        })
+
+        //TODO: Set text color of li with dbid = 1 to blue
+        btn4.addEventListener('click', function(){
+            document.querySelector("[data-dbid='1']").style.color = 'blue';
+        })
+
+        // TODO: Uncomment the next line and get all elements with class name sub-paragraph
+        const subParagraphs = document.querySelectorAll('.sub-paragraph');
+
+        // TODO: Change the text in the first sub paragraph to "Mission Accomplished!"
+        btn5.addEventListener('click', e => {
+            subParagraphs[0].textContent = 'Mission Accomplished!'
+        })
+
+        redBtn.addEventListener('click', function () {
+            const body = document.querySelector('body');
+            body.style.fontSize = '110px';
+            body.style.textAlign = 'center';
+            body.style.height = '100vh';
+            body.style.display = 'flex';
+            body.style.justifyContent = 'center';
+            body.style.alignItems = 'center';
+            body.innerHTML = 'YOU CUT THE WRONG WIRE';
+
+            setTimeout(function (){
+                document.querySelector('body').innerHTML = '';
+                document.querySelector('body').classList.add('gif');
+            }, 5000)
+
+        })
+    })();
+</script>
+</body>
+</html>
