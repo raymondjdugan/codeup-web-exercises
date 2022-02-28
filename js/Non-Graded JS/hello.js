@@ -16,4 +16,3 @@ const geocoder = function() {
     });
 }
 console.log(geocoder())
-$('#geocoder').append(geocoder().addTo(map));
