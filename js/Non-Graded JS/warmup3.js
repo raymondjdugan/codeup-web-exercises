@@ -191,14 +191,14 @@
     // Example input: '35, 42'
     // Example return: {low: 35, high: 42}
 
-    // const convertLowHighToObject = function (low, high){
-    //     if (parseFloat(low) && parseFloat(high)){
-    //         return `Low Temperature: ${low}\nHigh Temperature: ${high}`
-    //     } else {
-    //         return `Please enter numeric values for evaluation`
-    //     }
-    // }
-    // console.log(convertLowHighToObject(35, 42))
-    // console.log(convertLowHighToObject('hi'))
+    const convertLowHighToObject = function (low, high){
+        if (parseFloat(low) && parseFloat(high)){
+            return `Low Temperature: ${low}\nHigh Temperature: ${high}`
+        } else {
+            return `Please enter numeric values for evaluation`
+        }
+    }
+    console.log(convertLowHighToObject(35, 42))
+    console.log(convertLowHighToObject('hi'))
 })();
 
