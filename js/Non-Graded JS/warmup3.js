@@ -191,14 +191,26 @@
     // Example input: '35, 42'
     // Example return: {low: 35, high: 42}
 
-    const convertLowHighToObject = function (low, high){
-        if (parseFloat(low) && parseFloat(high)){
-            return `Low Temperature: ${low}\nHigh Temperature: ${high}`
-        } else {
-            return `Please enter numeric values for evaluation`
-        }
+    // const convertLowHighToObject = function (low, high){
+    //     if (parseFloat(low) && parseFloat(high)){
+    //         return `Low Temperature: ${low}\nHigh Temperature: ${high}`
+    //     } else {
+    //         return `Please enter numeric values for evaluation`
+    //     }
+    // }
+    // console.log(convertLowHighToObject(35, 42))
+    // console.log(convertLowHighToObject('hi'))
+
+    // Write a function called countDuplicates that takes in a string and returns an object that contains the count for each letter within the given string.
+    //     ex: countDuplicates("adsjfdsfsfjsdjfhacabcsbajda")
+    // returns { a: 5, d: 4, s: 5, j: 4, f: 4, h: 1, c: 2, b: 2 }
+
+    const countDuplicates = function (string){
+        return string.split('').reduce((total, letter) => {
+            total[letter] ? total[letter]++ : total[letter] = 1;
+            return total
+        }, {})
     }
-    console.log(convertLowHighToObject(35, 42))
-    console.log(convertLowHighToObject('hi'))
+    console.log(countDuplicates("adsjfdsfsfjsdjfhacabcsbajda"))
 })();
 
