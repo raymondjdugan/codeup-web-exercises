@@ -205,12 +205,34 @@
     //     ex: countDuplicates("adsjfdsfsfjsdjfhacabcsbajda")
     // returns { a: 5, d: 4, s: 5, j: 4, f: 4, h: 1, c: 2, b: 2 }
 
-    const countDuplicates = function (string){
-        return string.split('').reduce((total, letter) => {
-            total[letter] ? total[letter]++ : total[letter] = 1;
-            return total
-        }, {})
+    // const countDuplicates = function (string){
+    //     return string.split('').reduce((total, letter) => {
+    //         total[letter] ? total[letter]++ : total[letter] = 1;
+    //         return total
+    //     }, {})
+    // }
+    // console.log(countDuplicates("adsjfdsfsfjsdjfhacabcsbajda"))
+
+    const makePerson = function (personName, age){
+        if ((personName.length > 1 && personName !== " ") && (age >=1 && age <= 99)) {
+            return person = {personName: personName,
+                             age: age};
+        }
+        console.log("Not valid input")
+        return false;
     }
-    console.log(countDuplicates("adsjfdsfsfjsdjfhacabcsbajda"))
+
+    class Person{
+        constructor(name, age) {
+            this.name = name;
+            this.age = age;
+        }
+    }
+
+    let {personName, age} = makePerson("Ray", 34)
+    let ray = new Person(personName, age);
+    console.log(ray)
+
+
 })();
 
